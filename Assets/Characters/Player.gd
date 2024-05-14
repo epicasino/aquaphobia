@@ -12,6 +12,7 @@ var direction : Vector2 = Vector2.ZERO
 var on_ladder = false
 
 func _physics_process(delta):
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -25,7 +26,11 @@ func _physics_process(delta):
 	direction = Input.get_vector("move_left", "move_right", 'move_up', "move_down")
 	
 	if direction:
-		velocity.x = direction.x * speed
+		if not Global.game_start:
+			velocity.x = 0
+			velocity.y = 0
+		else:
+			velocity.x = direction.x * speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 
@@ -79,3 +84,4 @@ func _on_ladder_body_entered(body):
 func _on_ladder_body_exited(body):
 	on_ladder = false
 	gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+	

@@ -1,0 +1,80 @@
+[gd_scene load_steps=11 format=3 uid="uid://cf000sk5aqqc8"]
+
+[ext_resource type="Texture2D" uid="uid://dmaqm4vy34bla" path="res://Assets/Placeholder/Title_Text.png" id="1_h0vqr"]
+[ext_resource type="Script" path="res://Assets/Scripts/title_screen_button.gd" id="3_q6ocw"]
+[ext_resource type="FontFile" uid="uid://cjb7o0mfjafk7" path="res://Assets/Fonts/pixeloid/PixeloidMono-d94EV.ttf" id="3_tx2y3"]
+[ext_resource type="PackedScene" uid="uid://cxj80oljygfw5" path="res://Assets/Menus/title_screen_button.tscn" id="3_xg5so"]
+
+[sub_resource type="Animation" id="Animation_j4e25"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ofrcq"]
+resource_name = "dissolve"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xhkc5"]
+_data = {
+"RESET": SubResource("Animation_j4e25"),
+"dissolve": SubResource("Animation_ofrcq")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qd4dw"]
+bg_color = Color(0.296951, 0.296943, 0.777064, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2gst4"]
+bg_color = Color(0.375259, 0.3958, 0.878959, 1)
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 5
+
+[sub_resource type="Theme" id="Theme_sc5fj"]
+Button/fonts/font = ExtResource("3_tx2y3")
+Button/styles/hover = SubResource("StyleBoxFlat_qd4dw")
+Button/styles/normal = SubResource("StyleBoxFlat_2gst4")
+
+[node name="title_screen" type="Node2D"]
+
+[node name="TitleText" type="Sprite2D" parent="."]
+position = Vector2(557, 244)
+scale = Vector2(0.740741, 0.740741)
+texture = ExtResource("1_h0vqr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xhkc5")
+}
+
+[node name="title_screen_buttons" parent="." instance=ExtResource("3_xg5so")]
+offset_left = 368.0
+offset_top = 296.0
+offset_right = 577.0
+offset_bottom = 419.0
+scale = Vector2(2, 2)
+theme = SubResource("Theme_sc5fj")
+theme_override_constants/separation = 15
+script = ExtResource("3_q6ocw")

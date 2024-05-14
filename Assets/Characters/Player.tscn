@@ -216,7 +216,6 @@ animation = &"climbing"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3.5)
-scale = Vector2(0.99, 0.99)
 shape = SubResource("RectangleShape2D_sujg2")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

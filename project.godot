@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Aquaphobia"
-run/main_scene="res://Assets/Levels/debug_level.tscn"
+run/main_scene="res://Assets/Levels/submarine_level.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*res://Assets/Scripts/Global.gd"
 
 [display]
 
