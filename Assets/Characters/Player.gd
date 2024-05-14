@@ -46,14 +46,14 @@ func _physics_process(delta):
 func update_animate():
 	if not animation_locked:
 		if direction.x != 0:
-			if on_ladder:
+			if on_ladder && not is_on_floor():
 				animated_sprite.play('climbing')
 			else:
 				animated_sprite.play('running')
 		elif direction.y != 0:
 			animated_sprite.play('climbing')
 		else:
-			if on_ladder:
+			if on_ladder && not is_on_floor():
 				animated_sprite.play('climbing')
 			else: 
 				animated_sprite.play('idle')
@@ -72,7 +72,6 @@ func jump():
 func _on_animated_sprite_2d_animation_finished():
 	if animated_sprite.animation == 'jump':
 		animation_locked = false
-
 
 func _on_ladder_body_entered(body):
 	on_ladder = true

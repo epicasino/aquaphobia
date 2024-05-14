@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bh4nwnugd4pet"]
+
+[ext_resource type="Texture2D" uid="uid://bcyhosthpsk8m" path="res://Assets/Interactables/Sprites/terminal_and_monitor.png" id="1_wly18"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uv8ba"]
+
+[node name="screen" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -74)
+texture = ExtResource("1_wly18")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -28)
+scale = Vector2(8.165, 8.165)
+shape = SubResource("RectangleShape2D_uv8ba")
