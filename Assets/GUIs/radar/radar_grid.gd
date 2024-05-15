@@ -132,3 +132,7 @@ func _process(delta):
 		for i in medEnemyDelList.size():
 			mediumMonsterList.remove_at(medEnemyDelList[i])
 		medEnemyDelList = []
+
+func _on_ping_timeout():
+	$sonar_ping_noise.play()
+	$radar_ping/radar_animation.play("expand")

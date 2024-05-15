@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://6vybww4f30oi"]
+
+[ext_resource type="Texture2D" uid="uid://dml3vhkgi5uxn" path="res://Assets/Placeholder/ecco-the-dolphin.png" id="1_4lj02"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4mvux"]
+radius = 32.0
+
+[sub_resource type="Animation" id="Animation_c55iw"]
+resource_name = "fade_in_out"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hwsdh"]
+_data = {
+"fade_in_out": SubResource("Animation_c55iw")
+}
+
+[node name="small_monster_radar" type="Area2D"]
+
+[node name="small_monster" type="Sprite2D" parent="."]
+position = Vector2(32, 32)
+scale = Vector2(0.0666667, 0.0666667)
+texture = ExtResource("1_4lj02")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(32, 32)
+shape = SubResource("CircleShape2D_4mvux")
+
+[node name="small_monster_ping" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hwsdh")
+}

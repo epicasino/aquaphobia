@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://Assets/Levels/TileMap.gd" id="4_nspun"]
 [ext_resource type="Script" path="res://Assets/Scripts/CustomCamera2D.gd" id="5_761ti"]
 [ext_resource type="AudioStream" uid="uid://cxv40b4djqllp" path="res://Sound/OST/Trebor Orah - They Hunt.wav" id="7_acjor"]
-[ext_resource type="PackedScene" uid="uid://b21g746ev7f8v" path="res://Assets/GUIs/radar_grid.tscn" id="8_1fccg"]
+[ext_resource type="PackedScene" uid="uid://b21g746ev7f8v" path="res://Assets/GUIs/radar/radar_grid.tscn" id="8_1fccg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hr0mv"]
 texture = ExtResource("2_xwq63")

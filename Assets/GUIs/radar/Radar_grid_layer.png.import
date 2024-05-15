@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0ltkv3jmab1i"
-path="res://.godot/imported/Radar_grid.png-ec559ccb1723d8848c0c8cecbfb3f112.ctex"
+uid="uid://bd72me1qjiflg"
+path="res://.godot/imported/Radar_grid_layer.png-89889688c11703b483c0802de6542338.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GUIs/Radar_grid.png"
-dest_files=["res://.godot/imported/Radar_grid.png-ec559ccb1723d8848c0c8cecbfb3f112.ctex"]
+source_file="res://Assets/GUIs/radar/Radar_grid_layer.png"
+dest_files=["res://.godot/imported/Radar_grid_layer.png-89889688c11703b483c0802de6542338.ctex"]
 
 [params]
 
