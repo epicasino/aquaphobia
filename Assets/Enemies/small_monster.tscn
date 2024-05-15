@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://6vybww4f30oi"]
+
+[ext_resource type="Texture2D" uid="uid://dml3vhkgi5uxn" path="res://Assets/Placeholder/ecco-the-dolphin.png" id="1_8f0fh"]
+
+[node name="small_monster" type="Node2D"]
+scale = Vector2(0.107, 0.107)
+
+[node name="small_monster" type="Sprite2D" parent="."]
+position = Vector2(300, 300)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_8f0fh")

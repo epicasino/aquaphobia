@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cleqcfouqc6gl"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/medium_monster.gd" id="1_2ad7k"]
+[ext_resource type="Texture2D" uid="uid://dml3vhkgi5uxn" path="res://Assets/Placeholder/ecco-the-dolphin.png" id="2_mg3g6"]
+
+[node name="medium_monster" type="Node2D"]
+scale = Vector2(0.107, 0.107)
+script = ExtResource("1_2ad7k")
+
+[node name="medium_monster" type="Sprite2D" parent="."]
+position = Vector2(300, 300)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_mg3g6")

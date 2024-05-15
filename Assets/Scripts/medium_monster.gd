@@ -1,7 +1,4 @@
-extends Node
-
-var game_start : bool = false
-var game_day : int = 1
+extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
