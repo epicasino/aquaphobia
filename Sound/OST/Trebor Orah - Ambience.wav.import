@@ -2,7 +2,15 @@
 
 importer="wav"
 type="AudioStreamWAV"
+<<<<<<< Updated upstream
 uid="uid://cw8bno0wumnb3"
+=======
+<<<<<<< HEAD
+uid="uid://dbr14udqr75iq"
+=======
+uid="uid://cw8bno0wumnb3"
+>>>>>>> 0f1c99cf0bc553f6e08d1f23245e7c27500892d3
+>>>>>>> Stashed changes
 path="res://.godot/imported/Trebor Orah - Ambience.wav-b321427ab41274fe158167a3583828be.sample"
 
 [deps]
@@ -18,7 +26,15 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
+<<<<<<< Updated upstream
 edit/loop_mode=2
+=======
+<<<<<<< HEAD
+edit/loop_mode=0
+=======
+edit/loop_mode=2
+>>>>>>> 0f1c99cf0bc553f6e08d1f23245e7c27500892d3
+>>>>>>> Stashed changes
 edit/loop_begin=0
 edit/loop_end=-1
 compress/mode=0
