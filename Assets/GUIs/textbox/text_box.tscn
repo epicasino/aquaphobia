@@ -1,15 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://3hk87ylku6ce"]
+[gd_scene load_steps=3 format=3 uid="uid://3hk87ylku6ce"]
 
 [ext_resource type="Script" path="res://Assets/GUIs/textbox/text_box.gd" id="1_ef5b1"]
 [ext_resource type="Texture2D" uid="uid://csim3ksbycfek" path="res://Assets/Interactables/Sprites/text_box.png" id="1_u8156"]
-[ext_resource type="FontFile" uid="uid://xr20vdyorlyn" path="res://Assets/Fonts/PixelFont.ttf" id="2_4if0e"]
 
 [node name="text_box" type="MarginContainer"]
-anchors_preset = -1
-anchor_right = 0.035
-anchor_bottom = 0.062
-offset_right = -0.32
-offset_bottom = -0.176003
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -384.0
+offset_right = 384.0
+offset_bottom = 104.0
+grow_horizontal = 2
+size_flags_vertical = 8
 script = ExtResource("1_ef5b1")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
@@ -28,7 +30,17 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="Label" type="Label" parent="MarginContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_4if0e")
-vertical_alignment = 1
+bbcode_enabled = true
+
+[node name="wait_timer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
+[node name="type_timer" type="Timer" parent="."]
+wait_time = 0.05
+
+[connection signal="finished" from="MarginContainer/RichTextLabel" to="." method="_on_rich_text_label_finished"]
+[connection signal="timeout" from="wait_timer" to="." method="_on_wait_timer_timeout"]
+[connection signal="timeout" from="type_timer" to="." method="_on_type_timer_timeout"]
