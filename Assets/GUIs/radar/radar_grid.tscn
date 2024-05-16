@@ -126,7 +126,9 @@ mediumMonsterScene = ExtResource("2_jdmjo")
 smallEnemyScene = ExtResource("3_c3cou")
 
 [node name="SubViewport" type="SubViewport" parent="."]
+handle_input_locally = false
 size = Vector2i(576, 576)
+render_target_update_mode = 4
 
 [node name="spawn_timer" type="Timer" parent="SubViewport"]
 wait_time = 8.5
