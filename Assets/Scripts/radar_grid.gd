@@ -1,4 +1,4 @@
-extends Node2D
+extends SubViewportContainer
 
 @onready var rng = RandomNumberGenerator.new()
 #@export var largeEnemyScene: PackedScene
@@ -135,4 +135,4 @@ func _process(delta):
 
 func _on_ping_timeout():
 	$sonar_ping_noise.play()
-	$radar_ping/radar_animation.play("expand")
+	$SubViewport/radar_ping/radar_animation.play("expand")

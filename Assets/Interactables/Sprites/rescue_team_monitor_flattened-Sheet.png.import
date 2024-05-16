@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8hnt5mkr3mth"
-path="res://.godot/imported/terminal_and_monitor.png-c9d8a344bfe63b12e29832068dc55f22.ctex"
+uid="uid://chacdoakcuqmh"
+path="res://.godot/imported/rescue_team_monitor_flattened-Sheet.png-4d4a3e4a2bbfc64aad9b8a0f947f44b5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Interactables/Sprites/terminal_and_monitor.png"
-dest_files=["res://.godot/imported/terminal_and_monitor.png-c9d8a344bfe63b12e29832068dc55f22.ctex"]
+source_file="res://Assets/Interactables/Sprites/rescue_team_monitor_flattened-Sheet.png"
+dest_files=["res://.godot/imported/rescue_team_monitor_flattened-Sheet.png-4d4a3e4a2bbfc64aad9b8a0f947f44b5.ctex"]
 
 [params]
 

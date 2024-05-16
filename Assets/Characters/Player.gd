@@ -55,7 +55,7 @@ func update_animate():
 				animated_sprite.play('climbing')
 			else:
 				animated_sprite.play('running')
-		elif direction.y != 0:
+		elif direction.y != 0 && not is_on_floor():
 			animated_sprite.play('climbing')
 		else:
 			if on_ladder && not is_on_floor():

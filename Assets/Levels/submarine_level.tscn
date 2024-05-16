@@ -1,13 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://bssihkya8horf"]
+[gd_scene load_steps=17 format=3 uid="uid://bssihkya8horf"]
 
-[ext_resource type="Script" path="res://Assets/Levels/submarine_level.gd" id="1_6yemq"]
+[ext_resource type="Script" path="res://Assets/Scripts/submarine_level.gd" id="1_6yemq"]
 [ext_resource type="PackedScene" uid="uid://cf000sk5aqqc8" path="res://Assets/Menus/title_screen.tscn" id="1_osq1f"]
 [ext_resource type="Texture2D" uid="uid://mnfwhif3a730" path="res://Assets/Tilesets/ts_submarine.png" id="2_xwq63"]
 [ext_resource type="PackedScene" uid="uid://dyfayx4uj5114" path="res://Assets/Characters/Player.tscn" id="3_otlpw"]
-[ext_resource type="Script" path="res://Assets/Levels/TileMap.gd" id="4_nspun"]
+[ext_resource type="Script" path="res://Assets/Scripts/submarine_level_tileset.gd" id="4_nspun"]
 [ext_resource type="Script" path="res://Assets/Scripts/CustomCamera2D.gd" id="5_761ti"]
 [ext_resource type="AudioStream" uid="uid://cxv40b4djqllp" path="res://Sound/OST/Trebor Orah - They Hunt.wav" id="7_acjor"]
-[ext_resource type="PackedScene" uid="uid://b21g746ev7f8v" path="res://Assets/GUIs/radar/radar_grid.tscn" id="8_1fccg"]
+[ext_resource type="Script" path="res://Assets/Scripts/main_theme.gd" id="8_h4nan"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hr0mv"]
 texture = ExtResource("2_xwq63")
@@ -259,6 +259,43 @@ _data = {
 "Zoom": SubResource("Animation_y86p7")
 }
 
+[sub_resource type="Animation" id="Animation_7b8cx"]
+resource_name = "fade_out"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("main_theme:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -40.0]
+}
+
+[sub_resource type="Animation" id="Animation_f7nx5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("main_theme:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jdadj"]
+_data = {
+"RESET": SubResource("Animation_f7nx5"),
+"fade_out": SubResource("Animation_7b8cx")
+}
+
 [node name="submarine_level" type="Node2D"]
 script = ExtResource("1_6yemq")
 
@@ -266,7 +303,7 @@ script = ExtResource("1_6yemq")
 position = Vector2(444, -1028)
 scale = Vector2(1.25, 1.25)
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="submarine_level_tileset" type="TileMap" parent="."]
 position = Vector2(1, 0)
 rotation = 0.00136942
 tile_set = SubResource("TileSet_nr3vy")
@@ -299,9 +336,15 @@ libraries = {
 "": SubResource("AnimationLibrary_wkv3o")
 }
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="main_theme" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_acjor")
 autoplay = true
+script = ExtResource("8_h4nan")
 
-[node name="radar-grid" parent="." instance=ExtResource("8_1fccg")]
-visible = false
+[node name="fade_out" type="AnimationPlayer" parent="main_theme"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_jdadj")
+}
+
+[connection signal="animation_finished" from="main_theme/fade_out" to="main_theme" method="_on_fade_out_animation_finished"]
