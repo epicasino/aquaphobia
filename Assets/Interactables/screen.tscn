@@ -1,9 +1,11 @@
-[gd_scene load_steps=44 format=3 uid="uid://bh4nwnugd4pet"]
+[gd_scene load_steps=45 format=3 uid="uid://bh4nwnugd4pet"]
 
-[ext_resource type="Texture2D" uid="uid://b8hnt5mkr3mth" path="res://Assets/Interactables/Sprites/terminal_and_monitor.png" id="1_xno2m"]
+[ext_resource type="Script" path="res://Assets/Interactables/screen.gd" id="1_76q2n"]
+[ext_resource type="Texture2D" uid="uid://ch18cmfdw4wci" path="res://Assets/Interactables/Sprites/terminal_and_monitor_2.png" id="1_wpqoh"]
 [ext_resource type="Texture2D" uid="uid://chacdoakcuqmh" path="res://Assets/Interactables/Sprites/rescue_team_monitor_flattened-Sheet.png" id="2_8l6v0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uv8ba"]
+size = Vector2(20, 19.7979)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b7tjg"]
 atlas = ExtResource("2_8l6v0")
@@ -277,7 +279,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"turn_off",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -309,19 +311,23 @@ animations = [{
 }],
 "loop": true,
 "name": &"turn_on",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [node name="screen" type="Area2D"]
+script = ExtResource("1_76q2n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(8.165, 8.165)
+position = Vector2(0, 10.175)
+scale = Vector2(7, 7)
 shape = SubResource("RectangleShape2D_uv8ba")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-1, -48)
-texture = ExtResource("1_xno2m")
+[node name="TerminalAndMonitor2" type="Sprite2D" parent="."]
+position = Vector2(0, -48)
+texture = ExtResource("1_wpqoh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_x6q4c")
 animation = &"idle"
+frame = 2
+frame_progress = 0.249102

@@ -84,4 +84,3 @@ func _on_ladder_body_entered(body):
 func _on_ladder_body_exited(body):
 	on_ladder = false
 	gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-	
