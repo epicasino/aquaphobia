@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b21g746ev7f8v"]
+[gd_scene load_steps=34 format=3 uid="uid://b21g746ev7f8v"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/radar_grid.gd" id="1_7egi5"]
 [ext_resource type="PackedScene" uid="uid://cleqcfouqc6gl" path="res://Assets/GUIs/radar/medium_monster_radar.tscn" id="2_jdmjo"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://retm7jvagi68" path="res://Assets/GUIs/radar/sprites/Radar_target-Sheet.png" id="7_o7n6u"]
 [ext_resource type="Texture2D" uid="uid://o6akegqn58xv" path="res://Assets/GUIs/radar/sprites/radar_button-Sheet.png" id="7_vajog"]
 [ext_resource type="Texture2D" uid="uid://qpjpiceylkco" path="res://Assets/GUIs/radar/sprites/radar_sticky_note.png" id="7_yhwpj"]
+[ext_resource type="Script" path="res://Assets/GUIs/radar/radar_target.gd" id="8_gjm6d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3a70g"]
 radius = 256.32
@@ -228,6 +229,38 @@ region = Rect2(64, 0, 64, 64)
 atlas = ExtResource("7_o7n6u")
 region = Rect2(0, 0, 64, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0s0e"]
+atlas = ExtResource("7_o7n6u")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_humgf"]
+atlas = ExtResource("7_o7n6u")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20x61"]
+atlas = ExtResource("7_o7n6u")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3envo"]
+atlas = ExtResource("7_o7n6u")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8466c"]
+atlas = ExtResource("7_o7n6u")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwar5"]
+atlas = ExtResource("7_o7n6u")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxep7"]
+atlas = ExtResource("7_o7n6u")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyu2y"]
+atlas = ExtResource("7_o7n6u")
+region = Rect2(0, 0, 64, 64)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_nk06j"]
 animations = [{
 "frames": [{
@@ -258,6 +291,35 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r0s0e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_humgf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20x61")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3envo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8466c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwar5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxep7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyu2y")
+}],
+"loop": true,
+"name": &"locked_in",
+"speed": 20.0
 }]
 
 [node name="radar-grid" type="SubViewportContainer"]
@@ -318,8 +380,9 @@ centered = false
 [node name="radar_target" type="AnimatedSprite2D" parent="SubViewport"]
 position = Vector2(256, 448)
 sprite_frames = SubResource("SpriteFrames_nk06j")
-frame = 1
+animation = &"locked_in"
 centered = false
+script = ExtResource("8_gjm6d")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(418.928, 550.009)
