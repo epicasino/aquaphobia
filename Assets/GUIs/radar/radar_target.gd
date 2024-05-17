@@ -12,3 +12,5 @@ func _process(delta):
 	if Global.torpedoLockedIn:
 		play("locked_in")
 	else: play("default")
+	
+	#print(Global.torpedoCoordinates)

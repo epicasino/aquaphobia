@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 @export var speed : float = 200.0
 @export var jump_velocity : float = -400.0
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
@@ -98,8 +97,10 @@ func _on_animated_sprite_2d_animation_finished():
 		animation_locked = false
 
 func _on_ladder_body_entered(body):
-	on_ladder = true
+	if body.name == 'Player':
+		on_ladder = true
 
 func _on_ladder_body_exited(body):
-	on_ladder = false
-	gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+	if body.name =='Player':
+		on_ladder = false
+		gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
