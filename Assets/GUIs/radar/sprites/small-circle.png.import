@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1kifypybqqvw"
-path="res://.godot/imported/generator_terminal_animated-Sheet.png-886320fbbbb6e781e6b93b2b1cd7c761.ctex"
+uid="uid://cc7nht2xqhsbl"
+path="res://.godot/imported/small-circle.png-33e1f25480caa2f4655ae8754e22f65a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GUIs/generator/generator_terminal_animated-Sheet.png"
-dest_files=["res://.godot/imported/generator_terminal_animated-Sheet.png-886320fbbbb6e781e6b93b2b1cd7c761.ctex"]
+source_file="res://Assets/GUIs/radar/sprites/small-circle.png"
+dest_files=["res://.godot/imported/small-circle.png-33e1f25480caa2f4655ae8754e22f65a.ctex"]
 
 [params]
 

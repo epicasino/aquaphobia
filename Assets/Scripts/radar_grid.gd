@@ -13,9 +13,14 @@ var smallEnemyDelList = []
 var medEnemyDelList = []
 var lgEnemyDelList = []
 
+var pingStarted = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	rng.randomize()
+	visible = false
+	$SubViewport/radar_ping/Ping.visible = false
+	$SubViewport/radar_button.play("off")
 	# sub position
 	#sub.position.x = 256
 	#sub.position.y = 448
@@ -123,7 +128,24 @@ func _on_medium_monster_timer_timeout():
 			medEnemyDelList.push_back(i)
 			remove_child(mediumMonster)
 
+func _on_ping_timeout():
+	get_parent().get_node('sonar_ping_noise').play()
+	$SubViewport/radar_ping/radar_animation.play("expand")
+	for i in smallEnemyList.size():
+		var smallEnemy = smallEnemyList[i]
+		smallEnemy.get_node('small_blip').play('blip')
+	for i in mediumMonsterList.size():
+		var mediumEnemy = mediumMonsterList[i]
+		mediumEnemy.get_node('med_blip').play('blip')
+		
+	
 func _process(delta):
+	if !Global.pingEnabled: 
+		pingStarted = false
+		$SubViewport/ping.stop()
+	else: 
+		startUpPing()
+		pingStarted = true
 	if smallEnemyDelList.size() != 0:
 		for i in smallEnemyDelList.size():
 			smallEnemyList.remove_at(smallEnemyDelList[i])
@@ -133,6 +155,6 @@ func _process(delta):
 			mediumMonsterList.remove_at(medEnemyDelList[i])
 		medEnemyDelList = []
 
-func _on_ping_timeout():
-	$sonar_ping_noise.play()
-	$SubViewport/radar_ping/radar_animation.play("expand")
+func startUpPing():
+	if !pingStarted:
+		$SubViewport/ping.start()

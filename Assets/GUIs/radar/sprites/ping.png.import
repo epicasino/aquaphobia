@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1kifypybqqvw"
-path="res://.godot/imported/generator_terminal_animated-Sheet.png-886320fbbbb6e781e6b93b2b1cd7c761.ctex"
+uid="uid://blnoouxcqfy8d"
+path="res://.godot/imported/ping.png-547c4e9cad69a565e4f6198a7a26f20f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GUIs/generator/generator_terminal_animated-Sheet.png"
-dest_files=["res://.godot/imported/generator_terminal_animated-Sheet.png-886320fbbbb6e781e6b93b2b1cd7c761.ctex"]
+source_file="res://Assets/GUIs/radar/sprites/ping.png"
+dest_files=["res://.godot/imported/ping.png-547c4e9cad69a565e4f6198a7a26f20f.ctex"]
 
 [params]
 

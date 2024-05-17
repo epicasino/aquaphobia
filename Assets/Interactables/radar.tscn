@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://ljr86tar0y4k"]
+
+[ext_resource type="Script" path="res://Assets/Interactables/radar.gd" id="1_81nkg"]
+[ext_resource type="Texture2D" uid="uid://ca735gct718ic" path="res://Assets/Placeholder/lego beerus transparent.png" id="1_cnwik"]
+[ext_resource type="PackedScene" uid="uid://b21g746ev7f8v" path="res://Assets/GUIs/radar/radar_grid.tscn" id="2_lnlwd"]
+[ext_resource type="AudioStream" uid="uid://biqbdgyy77ghl" path="res://Sound/SoundEffects/Submarine_SFX/sonar_ping.wav" id="3_w5o4m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_blm3h"]
+size = Vector2(128, 128)
+
+[node name="radar" type="Area2D"]
+script = ExtResource("1_81nkg")
+
+[node name="LegoBeerusTransparent" type="Sprite2D" parent="."]
+scale = Vector2(0.0756501, 0.0744186)
+texture = ExtResource("1_cnwik")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(64, 64)
+shape = SubResource("RectangleShape2D_blm3h")
+
+[node name="radar-grid" parent="." instance=ExtResource("2_lnlwd")]
+z_index = 1
+offset_left = -224.0
+offset_top = -224.0
+offset_right = 352.0
+offset_bottom = 352.0
+
+[node name="sonar_ping_noise" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, 3.05176e-05)
+stream = ExtResource("3_w5o4m")
+volume_db = -20.0
+max_distance = 1000.0
+panning_strength = 3.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

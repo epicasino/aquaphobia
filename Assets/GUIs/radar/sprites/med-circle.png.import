@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1kifypybqqvw"
-path="res://.godot/imported/generator_terminal_animated-Sheet.png-886320fbbbb6e781e6b93b2b1cd7c761.ctex"
+uid="uid://bo4d4uoo67uho"
+path="res://.godot/imported/med-circle.png-d641f7135bc8f6deece8a6d1a1e6ab1f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GUIs/generator/generator_terminal_animated-Sheet.png"
-dest_files=["res://.godot/imported/generator_terminal_animated-Sheet.png-886320fbbbb6e781e6b93b2b1cd7c761.ctex"]
+source_file="res://Assets/GUIs/radar/sprites/med-circle.png"
+dest_files=["res://.godot/imported/med-circle.png-d641f7135bc8f6deece8a6d1a1e6ab1f.ctex"]
 
 [params]
 

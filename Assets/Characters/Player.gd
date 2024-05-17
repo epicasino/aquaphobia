@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 @export var speed : float = 200.0
 @export var jump_velocity : float = -400.0
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
@@ -26,9 +25,28 @@ func _physics_process(delta):
 	direction = Input.get_vector("move_left", "move_right", 'move_up', "move_down")
 	
 	if direction:
+		# freeze player if game has not started
 		if not Global.game_start:
 			velocity.x = 0
 			velocity.y = 0
+		# if player goes to radar and turns on the radar, freeze movement
+		elif get_parent().get_node('radar').get_node('radar-grid').visible == true:
+			velocity.x = 0
+			velocity.y = 0
+			# I made this while I had 1 and a half beers. Sets up the torpedo system and controls on the radar.
+			if !Global.torpedoLockedIn:
+				if Input.is_action_just_pressed("move_up"):
+					if Global.torpedoCoordinates.y > 0:
+						Global.torpedoCoordinates.y -= 64
+				if Input.is_action_just_pressed("move_down"):
+					if Global.torpedoCoordinates.y < 448:
+						Global.torpedoCoordinates.y += 64
+				if Input.is_action_just_pressed("move_left"):
+					if Global.torpedoCoordinates.x > 0:
+						Global.torpedoCoordinates.x -= 64
+				if Input.is_action_just_pressed("move_right"):
+					if Global.torpedoCoordinates.x < 512:
+						Global.torpedoCoordinates.x += 64
 		else:
 			velocity.x = direction.x * speed
 	else:
@@ -79,8 +97,10 @@ func _on_animated_sprite_2d_animation_finished():
 		animation_locked = false
 
 func _on_ladder_body_entered(body):
-	on_ladder = true
+	if body.name == 'Player':
+		on_ladder = true
 
 func _on_ladder_body_exited(body):
-	on_ladder = false
-	gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+	if body.name =='Player':
+		on_ladder = false
+		gravity = ProjectSettings.get_setting("physics/2d/default_gravity")

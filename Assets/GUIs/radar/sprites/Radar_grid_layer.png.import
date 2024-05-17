@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blnoouxcqfy8d"
-path="res://.godot/imported/ping.png-6d21be86e4ee66d4634715f5f449cccb.ctex"
+uid="uid://bd72me1qjiflg"
+path="res://.godot/imported/Radar_grid_layer.png-559c78022ac94bf51b5b1335e0d00e11.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GUIs/radar/ping.png"
-dest_files=["res://.godot/imported/ping.png-6d21be86e4ee66d4634715f5f449cccb.ctex"]
+source_file="res://Assets/GUIs/radar/sprites/Radar_grid_layer.png"
+dest_files=["res://.godot/imported/Radar_grid_layer.png-559c78022ac94bf51b5b1335e0d00e11.ctex"]
 
 [params]
 
