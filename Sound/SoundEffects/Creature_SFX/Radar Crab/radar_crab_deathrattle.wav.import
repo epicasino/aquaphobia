@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://jlpdagyq4wya"
+path="res://.godot/imported/radar_crab_deathrattle.wav-3faf1e0d352e764b046f9450b008dd30.sample"
+
+[deps]
+
+source_file="res://Sound/SoundEffects/Creature_SFX/Radar Crab/radar_crab_deathrattle.wav"
+dest_files=["res://.godot/imported/radar_crab_deathrattle.wav-3faf1e0d352e764b046f9450b008dd30.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://Assets/Scripts/CustomCamera2D.gd" id="5_761ti"]
 [ext_resource type="AudioStream" uid="uid://cxv40b4djqllp" path="res://Sound/OST/Trebor Orah - They Hunt.wav" id="7_acjor"]
 [ext_resource type="Script" path="res://Assets/Levels/music.gd" id="7_gt76x"]
-[ext_resource type="AudioStream" uid="uid://cw8bno0wumnb3" path="res://Sound/OST/Trebor Orah - Ambience.wav" id="8_fy0ru"]
+[ext_resource type="AudioStream" uid="uid://b0yxtihqdocyl" path="res://Sound/OST/Trebor Orah - Ambience.wav" id="8_fy0ru"]
 [ext_resource type="PackedScene" uid="uid://bh4nwnugd4pet" path="res://Assets/Interactables/screen.tscn" id="10_1s81d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hr0mv"]

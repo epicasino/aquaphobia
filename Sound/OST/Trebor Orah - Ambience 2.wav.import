@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://jy71sat3wtct"
+path="res://.godot/imported/Trebor Orah - Ambience 2.wav-b0b81773136378dc6752a22868df6e8c.sample"
+
+[deps]
+
+source_file="res://Sound/OST/Trebor Orah - Ambience 2.wav"
+dest_files=["res://.godot/imported/Trebor Orah - Ambience 2.wav-b0b81773136378dc6752a22868df6e8c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
