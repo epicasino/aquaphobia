@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://xdh78f0smonk"
+path="res://.godot/imported/drill_shark_drill1.wav-95b4a96e3a236302d8639cdbbedef8b0.sample"
+
+[deps]
+
+source_file="res://Sound/SoundEffects/Creature_SFX/Drill Shark/drill_shark_drill1.wav"
+dest_files=["res://.godot/imported/drill_shark_drill1.wav-95b4a96e3a236302d8639cdbbedef8b0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,30 +1,59 @@
-[gd_scene load_steps=5 format=3 uid="uid://6vybww4f30oi"]
+[gd_scene load_steps=6 format=3 uid="uid://6vybww4f30oi"]
 
-[ext_resource type="Texture2D" uid="uid://dml3vhkgi5uxn" path="res://Assets/Placeholder/ecco-the-dolphin.png" id="1_4lj02"]
+[ext_resource type="Texture2D" uid="uid://cc7nht2xqhsbl" path="res://Assets/GUIs/radar/sprites/small-circle.png" id="1_rjb50"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4mvux"]
-radius = 32.0
+radius = 8.0
+
+[sub_resource type="Animation" id="Animation_xxt5f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("small-circle:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_c55iw"]
-resource_name = "fade_in_out"
+resource_name = "blip"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("small-circle:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hwsdh"]
 _data = {
-"fade_in_out": SubResource("Animation_c55iw")
+"RESET": SubResource("Animation_xxt5f"),
+"blip": SubResource("Animation_c55iw")
 }
 
 [node name="small_monster_radar" type="Area2D"]
-
-[node name="small_monster" type="Sprite2D" parent="."]
-position = Vector2(32, 32)
-scale = Vector2(0.0666667, 0.0666667)
-texture = ExtResource("1_4lj02")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(32, 32)
 shape = SubResource("CircleShape2D_4mvux")
 
-[node name="small_monster_ping" type="AnimationPlayer" parent="."]
+[node name="small-circle" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(32, 32)
+texture = ExtResource("1_rjb50")
+
+[node name="small_blip" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_hwsdh")
 }

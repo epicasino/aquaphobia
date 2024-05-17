@@ -26,9 +26,26 @@ func _physics_process(delta):
 	direction = Input.get_vector("move_left", "move_right", 'move_up', "move_down")
 	
 	if direction:
+		# freeze player if game has not started
 		if not Global.game_start:
 			velocity.x = 0
 			velocity.y = 0
+		# if player goes to radar and turns on the radar, freeze movement
+		elif get_parent().get_node('radar').get_node('radar-grid').visible == true:
+			velocity.x = 0
+			velocity.y = 0
+			if Input.is_action_just_pressed("move_up"):
+				if get_parent().get_node('radar').get_node('radar-grid').get_node('SubViewport').get_node('radar_target').position.y > 0:
+					get_parent().get_node('radar').get_node('radar-grid').get_node('SubViewport').get_node('radar_target').position.y -= 64
+			if Input.is_action_just_pressed("move_down"):
+				if get_parent().get_node('radar').get_node('radar-grid').get_node('SubViewport').get_node('radar_target').position.y < 448:
+					get_parent().get_node('radar').get_node('radar-grid').get_node('SubViewport').get_node('radar_target').position.y += 64
+			if Input.is_action_just_pressed("move_left"):
+				if get_parent().get_node('radar').get_node('radar-grid').get_node('SubViewport').get_node('radar_target').position.x > 0:
+					get_parent().get_node('radar').get_node('radar-grid').get_node('SubViewport').get_node('radar_target').position.x -= 64
+			if Input.is_action_just_pressed("move_right"):
+				if get_parent().get_node('radar').get_node('radar-grid').get_node('SubViewport').get_node('radar_target').position.x < 576:
+					get_parent().get_node('radar').get_node('radar-grid').get_node('SubViewport').get_node('radar_target').position.x += 64
 		else:
 			velocity.x = direction.x * speed
 	else:

@@ -1,10 +1,60 @@
-[gd_scene load_steps=2 format=3 uid="uid://duosb5d7ultp5"]
+[gd_scene load_steps=6 format=3 uid="uid://duosb5d7ultp5"]
 
-[ext_resource type="Texture2D" uid="uid://dml3vhkgi5uxn" path="res://Assets/Placeholder/ecco-the-dolphin.png" id="1_26dc1"]
+[ext_resource type="Texture2D" uid="uid://dxov6q8qhf3a5" path="res://Assets/GUIs/radar/sprites/lg-circle.png" id="1_uxur4"]
 
-[node name="large_monster" type="Node2D"]
-scale = Vector2(0.107, 0.107)
+[sub_resource type="CircleShape2D" id="CircleShape2D_rwo1k"]
+radius = 32.0
 
-[node name="medium_monster" type="Sprite2D" parent="."]
-position = Vector2(300, 300)
-texture = ExtResource("1_26dc1")
+[sub_resource type="Animation" id="Animation_hlhgt"]
+resource_name = "blip"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../lg-circle:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_scf2v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../lg-circle:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_33520"]
+_data = {
+"RESET": SubResource("Animation_scf2v"),
+"blip": SubResource("Animation_hlhgt")
+}
+
+[node name="large_monster" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(32, 32)
+shape = SubResource("CircleShape2D_rwo1k")
+
+[node name="lg-circle" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(32, 32)
+texture = ExtResource("1_uxur4")
+
+[node name="large_blip" type="AnimationPlayer" parent="."]
+root_node = NodePath("../CollisionShape2D")
+libraries = {
+"": SubResource("AnimationLibrary_33520")
+}

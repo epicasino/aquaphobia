@@ -1,19 +1,60 @@
-[gd_scene load_steps=3 format=3 uid="uid://cleqcfouqc6gl"]
+[gd_scene load_steps=6 format=3 uid="uid://cleqcfouqc6gl"]
 
-[ext_resource type="Texture2D" uid="uid://dml3vhkgi5uxn" path="res://Assets/Placeholder/ecco-the-dolphin.png" id="1_rw8dr"]
+[ext_resource type="Texture2D" uid="uid://bo4d4uoo67uho" path="res://Assets/GUIs/radar/sprites/med-circle.png" id="1_4oel5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nsunb"]
-radius = 32.0
+radius = 24.0
+
+[sub_resource type="Animation" id="Animation_ip2uy"]
+resource_name = "blip"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("med-circle:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_r34eu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("med-circle:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5hiqi"]
+_data = {
+"RESET": SubResource("Animation_r34eu"),
+"blip": SubResource("Animation_ip2uy")
+}
 
 [node name="medium_monster_radar" type="Area2D"]
-
-[node name="medium_monster" type="Sprite2D" parent="."]
-position = Vector2(32, 32)
-scale = Vector2(0.08, 0.08)
-texture = ExtResource("1_rw8dr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(32, 32)
 shape = SubResource("CircleShape2D_nsunb")
 
-[node name="medium_monster_radar" type="AnimationPlayer" parent="."]
+[node name="med-circle" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(32, 32)
+scale = Vector2(1.125, 1.125)
+texture = ExtResource("1_4oel5")
+
+[node name="med_blip" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5hiqi")
+}

@@ -1,0 +1,148 @@
+[gd_scene load_steps=22 format=3 uid="uid://bqgdv588i604n"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/engine.gd" id="1_7buqm"]
+[ext_resource type="Texture2D" uid="uid://oy8d8l4dt5j7" path="res://Assets/Interactables/Sprites/generator_animated-Sheet.png" id="1_perr5"]
+[ext_resource type="AudioStream" uid="uid://cker8v163a32i" path="res://Sound/SoundEffects/Submarine_SFX/engine_hum.wav" id="3_jw38m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mi5a6"]
+size = Vector2(128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l2jkc"]
+atlas = ExtResource("1_perr5")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbcbl"]
+atlas = ExtResource("1_perr5")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0oug3"]
+atlas = ExtResource("1_perr5")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r265h"]
+atlas = ExtResource("1_perr5")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_06vp6"]
+atlas = ExtResource("1_perr5")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6it7"]
+atlas = ExtResource("1_perr5")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a15q2"]
+atlas = ExtResource("1_perr5")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uy2f4"]
+atlas = ExtResource("1_perr5")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whyyv"]
+atlas = ExtResource("1_perr5")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sx6q3"]
+atlas = ExtResource("1_perr5")
+region = Rect2(1152, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30is1"]
+atlas = ExtResource("1_perr5")
+region = Rect2(1280, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7vtp"]
+atlas = ExtResource("1_perr5")
+region = Rect2(1408, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0mwbu"]
+atlas = ExtResource("1_perr5")
+region = Rect2(1536, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8kswa"]
+atlas = ExtResource("1_perr5")
+region = Rect2(1664, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3j3ck"]
+atlas = ExtResource("1_perr5")
+region = Rect2(1792, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yj07s"]
+atlas = ExtResource("1_perr5")
+region = Rect2(1920, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ebmq6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l2jkc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kbcbl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0oug3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r265h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_06vp6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p6it7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a15q2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uy2f4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whyyv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sx6q3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30is1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h7vtp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0mwbu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8kswa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3j3ck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yj07s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="engine" type="Area2D"]
+script = ExtResource("1_7buqm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(64, 64)
+shape = SubResource("RectangleShape2D_mi5a6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ebmq6")
+centered = false
+
+[node name="engine_hum" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(64, 64)
+stream = ExtResource("3_jw38m")
+volume_db = -10.0
+autoplay = true
+max_distance = 250.0
+attenuation = 1.2
+panning_strength = 2.0

@@ -352,28 +352,24 @@ sprite_frames = SubResource("SpriteFrames_x6q4c")
 animation = &"off"
 
 [node name="text_box" parent="." instance=ExtResource("4_0n4xl")]
+visible = false
 offset_top = -224.0
 offset_bottom = -120.0
 
-[node name="officer_explain" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_loqr6")
-volume_db = -10.0
-max_distance = 500.0
-attenuation = 1.93
-panning_strength = 3.0
-
-[node name="officer_hello" type="AudioStreamPlayer2D" parent="."]
+[node name="rescue_hello" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_xssca")
 volume_db = -10.0
-max_distance = 500.0
-attenuation = 1.93
+max_distance = 1000.0
+panning_strength = 3.0
 
-[node name="turn_on_timer" type="Timer" parent="."]
-wait_time = 0.8
-one_shot = true
+[node name="rescue_explain" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_loqr6")
+volume_db = -10.0
+max_distance = 1000.0
+panning_strength = 3.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="character_speech" from="text_box" to="." method="_on_text_box_character_speech"]
 [connection signal="message_completed" from="text_box" to="." method="_on_text_box_message_completed"]
-[connection signal="timeout" from="turn_on_timer" to="." method="_on_turn_on_timer_timeout"]

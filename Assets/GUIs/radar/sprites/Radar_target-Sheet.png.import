@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://v04mg670fq32"
-path="res://.godot/imported/placeholder_tiles.png-a137c9cc7b55434a65e47d015ff5c3db.ctex"
+uid="uid://retm7jvagi68"
+path="res://.godot/imported/Radar_target-Sheet.png-b4f96f183ea05530bbdad70321b1bc9e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tilesets/placeholder_tiles.png"
-dest_files=["res://.godot/imported/placeholder_tiles.png-a137c9cc7b55434a65e47d015ff5c3db.ctex"]
+source_file="res://Assets/GUIs/radar/sprites/Radar_target-Sheet.png"
+dest_files=["res://.godot/imported/Radar_target-Sheet.png-b4f96f183ea05530bbdad70321b1bc9e.ctex"]
 
 [params]
 
