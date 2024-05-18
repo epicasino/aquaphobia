@@ -24,6 +24,9 @@ func _process(delta):
 		$"radar-grid".visible = false
 		openedRadar = false
 	
+	if Global.torpedoLaunched:
+		Global.torpedoLockedIn = false
+	
 	radar_torpedo_controls()
 
 # I made this while I had 1 and a half beers. Sets up the torpedo system and controls on the radar.
