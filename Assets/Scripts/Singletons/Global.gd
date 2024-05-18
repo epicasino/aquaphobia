@@ -4,6 +4,8 @@ var game_start : bool = false
 var game_day : int = 1
 var pingEnabled : bool = false
 
+var day_1_grace_period: bool = true
+
 # On radar scene, gets torpedo coordinates and verified lock-in coordinates
 var torpedoCoordinates = Vector2(256, 448)
 var torpedoLockedIn = false
@@ -19,3 +21,5 @@ var gunPosition = false
 var gunLockedIn = false
 
 var reactorHealth = 0
+
+var youLose = false

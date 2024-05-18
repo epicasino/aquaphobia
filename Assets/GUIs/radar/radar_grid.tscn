@@ -338,22 +338,22 @@ render_target_update_mode = 4
 
 [node name="spawn_timer" type="Timer" parent="SubViewport"]
 wait_time = 8.5
-autostart = true
-
-[node name="small_monster_timer" type="Timer" parent="SubViewport"]
-wait_time = 5.0
-autostart = true
-
-[node name="medium_monster_timer" type="Timer" parent="SubViewport"]
-wait_time = 7.5
-autostart = true
 
 [node name="ping" type="Timer" parent="SubViewport"]
 wait_time = 5.0
 
+[node name="small_monster_timer" type="Timer" parent="SubViewport"]
+wait_time = 5.0
+
+[node name="medium_monster_timer" type="Timer" parent="SubViewport"]
+wait_time = 7.5
+
 [node name="lg_monster_timer" type="Timer" parent="SubViewport"]
+wait_time = 240.0
+one_shot = true
+
+[node name="lg_monster_move_timer" type="Timer" parent="SubViewport"]
 wait_time = 10.0
-autostart = true
 
 [node name="RadarGrid" type="Sprite2D" parent="SubViewport"]
 position = Vector2(288, 288)
@@ -397,7 +397,8 @@ scale = Vector2(1.03319, 0.785866)
 texture = ExtResource("7_yhwpj")
 
 [connection signal="timeout" from="SubViewport/spawn_timer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="SubViewport/ping" to="." method="_on_ping_timeout"]
 [connection signal="timeout" from="SubViewport/small_monster_timer" to="." method="_on_small_monster_timer_timeout"]
 [connection signal="timeout" from="SubViewport/medium_monster_timer" to="." method="_on_medium_monster_timer_timeout"]
-[connection signal="timeout" from="SubViewport/ping" to="." method="_on_ping_timeout"]
 [connection signal="timeout" from="SubViewport/lg_monster_timer" to="." method="_on_lg_monster_timer_timeout"]
+[connection signal="timeout" from="SubViewport/lg_monster_move_timer" to="." method="_on_lg_monster_move_timer_timeout"]

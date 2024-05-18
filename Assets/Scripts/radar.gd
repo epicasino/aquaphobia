@@ -17,6 +17,8 @@ func _process(delta):
 		if !Global.pingEnabled:
 			$'radar-grid'.get_node('SubViewport').get_node('radar_button').play('on')
 			Global.pingEnabled = true
+			# Turns off day 1 grace period, monsters will start spawning after this is false
+			Global.day_1_grace_period = false
 		else:
 			$'radar-grid'.get_node('SubViewport').get_node('radar_button').play('off')
 			Global.pingEnabled = false

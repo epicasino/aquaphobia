@@ -49,6 +49,12 @@ func _physics_process(delta):
 	update_animate()
 	update_facing_direction()
 	check_frozen()
+	drop()
+
+func drop():
+	if Input.is_action_pressed("move_down") && !on_ladder:
+		self.position = Vector2(self.position.x, self.position.y + 1)
+	
 
 func check_frozen():
 	if (get_parent().get_node('radar').get_node('radar-grid').visible || 

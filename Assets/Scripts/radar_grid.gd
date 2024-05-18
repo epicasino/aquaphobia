@@ -15,15 +15,44 @@ var lgEnemyDelList = []
 
 var pingStarted = false
 
+# once it goes true, enemies will spawn and cant be turned off until the end of each day
+var startEnemySpawn = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	rng.randomize()
 	visible = false
 	$SubViewport/radar_ping/Ping.visible = false
 	$SubViewport/radar_button.play("off")
+	
 	# sub position
 	#sub.position.x = 256
 	#sub.position.y = 448
+
+func _process(delta):
+	if !Global.pingEnabled: 
+		pingStarted = false
+		$SubViewport/ping.stop()
+	else: 
+		startUpPing()
+		pingStarted = true
+	
+	deleteEnemies()
+	
+	if !Global.day_1_grace_period:
+		after_day_1_grace_period()
+	
+	if Global.torpedoLaunched:
+		enemy_on_torpedo_coords_check()
+		Global.torpedoLaunched = false
+
+func after_day_1_grace_period():
+	if !startEnemySpawn:
+		$SubViewport/spawn_timer.start()
+		#$SubViewport/lg_monster_timer.start()
+		$SubViewport/medium_monster_timer.start()
+		$SubViewport/small_monster_timer.start()
+	startEnemySpawn = true
 
 func get_random_int_between(min_val, max_val):
 	return rng.randi_range(min_val, max_val)
@@ -103,6 +132,7 @@ func _on_small_monster_timer_timeout():
 		else: pass
 		
 		if smallMonster.position.x == 256 && smallMonster.position.y == 448:
+			print('Small Enemy In Ship')
 		# TODO: add function to trigger small or medium monsters to spawn on submarine
 			smallEnemyDelList.push_back(i)
 			remove_child(smallMonster)
@@ -124,6 +154,7 @@ func _on_medium_monster_timer_timeout():
 		else: pass
 		
 		if mediumMonster.position.x == 256 && mediumMonster.position.y == 448:
+			print('Medium Enemy In Ship')
 		# TODO: add function to trigger small or medium monsters to spawn on submarine
 			medEnemyDelList.push_back(i)
 			remove_child(mediumMonster)
@@ -140,30 +171,6 @@ func _on_ping_timeout():
 	for i in largeEnemyList.size():
 		var largeEnemy = largeEnemyList[i]
 		largeEnemy.get_node('large_blip').play('blip')
-		
-	
-func _process(delta):
-	if !Global.pingEnabled: 
-		pingStarted = false
-		$SubViewport/ping.stop()
-	else: 
-		startUpPing()
-		pingStarted = true
-	if smallEnemyDelList.size() != 0:
-		for i in smallEnemyDelList.size():
-			smallEnemyList.remove_at(smallEnemyDelList[i])
-		smallEnemyDelList = []
-	if medEnemyDelList.size() != 0:
-		for i in medEnemyDelList.size():
-			mediumEnemyList.remove_at(medEnemyDelList[i])
-		medEnemyDelList = []
-	if lgEnemyDelList.size() != 0:
-		for i in lgEnemyDelList.size():
-			largeEnemyList.remove_at(lgEnemyDelList[i])
-		lgEnemyDelList = []
-	if Global.torpedoLaunched:
-		enemy_on_torpedo_coords_check()
-		Global.torpedoLaunched = false
 
 func enemy_on_torpedo_coords_check():
 	for i in smallEnemyList.size():
@@ -178,6 +185,32 @@ func enemy_on_torpedo_coords_check():
 			medEnemyDelList.push_back(i)
 			remove_child(mediumEnemy)
 			print('hit')
+	for i in largeEnemyList.size():
+		var largeEnemy = largeEnemyList[i]
+		# A bunch of checks to see if you shot one grid place off of the large enemy
+		if (Global.torpedoCoordinates.y < largeEnemy.position.y && 
+		Global.torpedoCoordinates.y + 64 == largeEnemy.position.y):
+			largeEnemy.position.y -= 64
+		elif (Global.torpedoCoordinates.y > largeEnemy.position.y &&
+		Global.torpedoCoordinates.y - 64 == largeEnemy.position.y):
+			largeEnemy.position.y -= 64
+		elif (Global.torpedoCoordinates.x > largeEnemy.position.x &&
+		Global.torpedoCoordinates.y - 64 == largeEnemy.position.x):
+			largeEnemy.position.y -= 64
+		elif (Global.torpedoCoordinates.x < largeEnemy.position.x &&
+		Global.torpedoCoordinates.y + 64 == largeEnemy.position.x):
+			largeEnemy.position.y -= 64
+		# If you hit directly, you eliminate the large monster
+		elif Global.torpedoCoordinates == largeEnemy.position:
+			lgEnemyDelList.push_back(i)
+			remove_child(largeEnemy)
+			print('hit')
+	if Global.torpedoCoordinates == Vector2(256, 448):
+		Global.youLose = true
+
+	# sub position
+	#sub.position.x = 256
+	#sub.position.y = 448
 
 func startUpPing():
 	if !pingStarted:
@@ -191,3 +224,52 @@ func _on_lg_monster_timer_timeout():
 	largeEnemy.position.y = 0
 	add_child(largeEnemy)
 	largeEnemyList.push_back(largeEnemy)
+	$SubViewport/lg_monster_move_timer.start()
+
+func _on_lg_monster_move_timer_timeout():
+	for i in largeEnemyList.size():
+		var largeMonster = largeEnemyList[i]
+		if get_random_direction() == -1: 
+			if largeMonster.position.x < 256:
+				largeMonster.position.x += 64
+			elif largeMonster.position.x > 256:
+				largeMonster.position.x -= 64
+			else: pass
+			
+			if largeMonster.position.y < 448:
+				largeMonster.position.y += 64
+			elif largeMonster.position.y > 448:
+				largeMonster.position.y -= 64
+			else: pass
+		else:
+			var random_direction = get_random_int_between(1,4)
+			# Moves random directions 50%, checks if random movement would exceed grid limits,
+			# If it does, it doesn't move, making it more unpredictable.
+			if random_direction == 1 && largeMonster.position.y > 0:
+				largeMonster.position.y -= 64
+			elif random_direction == 2 && largeMonster.position.y < 512:
+				largeMonster.position.y += 64
+			elif random_direction == 3 && largeMonster.position.x > 0:
+				largeMonster.position.y -= 64
+			elif random_direction == 4 && largeMonster.position.x < 576:
+				largeMonster.position.y += 64
+			
+		if largeMonster.position.x == 256 && largeMonster.position.y == 448:
+			# TODO: input you lose variable and screen here
+				lgEnemyDelList.push_back(i)
+				remove_child(largeMonster)
+				$SubViewport/lg_monster_move_timer.stop()
+
+func deleteEnemies():
+	if smallEnemyDelList.size() != 0:
+		for i in smallEnemyDelList.size():
+			smallEnemyList.remove_at(smallEnemyDelList[i])
+		smallEnemyDelList = []
+	if medEnemyDelList.size() != 0:
+		for i in medEnemyDelList.size():
+			mediumEnemyList.remove_at(medEnemyDelList[i])
+		medEnemyDelList = []
+	if lgEnemyDelList.size() != 0:
+		for i in lgEnemyDelList.size():
+			largeEnemyList.remove_at(lgEnemyDelList[i])
+		lgEnemyDelList = []

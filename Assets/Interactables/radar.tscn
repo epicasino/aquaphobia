@@ -1,9 +1,52 @@
-[gd_scene load_steps=6 format=3 uid="uid://ljr86tar0y4k"]
+[gd_scene load_steps=12 format=3 uid="uid://ljr86tar0y4k"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/radar.gd" id="1_5et3j"]
-[ext_resource type="Texture2D" uid="uid://ca735gct718ic" path="res://Assets/Placeholder/lego beerus transparent.png" id="1_cnwik"]
+[ext_resource type="Texture2D" uid="uid://bu512l2viw4l2" path="res://Assets/GUIs/radar/sprites/sonar_terminal_animated-Sheet.png" id="2_iwe1c"]
 [ext_resource type="PackedScene" uid="uid://b21g746ev7f8v" path="res://Assets/GUIs/radar/radar_grid.tscn" id="2_lnlwd"]
 [ext_resource type="AudioStream" uid="uid://biqbdgyy77ghl" path="res://Sound/SoundEffects/Submarine_SFX/sonar_ping.wav" id="3_w5o4m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pj5m2"]
+atlas = ExtResource("2_iwe1c")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7krj3"]
+atlas = ExtResource("2_iwe1c")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bcyml"]
+atlas = ExtResource("2_iwe1c")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1u7gr"]
+atlas = ExtResource("2_iwe1c")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ab1se"]
+atlas = ExtResource("2_iwe1c")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cnybr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pj5m2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7krj3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bcyml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1u7gr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ab1se")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_blm3h"]
 size = Vector2(128, 128)
@@ -11,9 +54,10 @@ size = Vector2(128, 128)
 [node name="radar" type="Area2D"]
 script = ExtResource("1_5et3j")
 
-[node name="LegoBeerusTransparent" type="Sprite2D" parent="."]
-scale = Vector2(0.0756501, 0.0744186)
-texture = ExtResource("1_cnwik")
+[node name="radar-sprites" type="AnimatedSprite2D" parent="."]
+position = Vector2(15, 32)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_cnybr")
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
