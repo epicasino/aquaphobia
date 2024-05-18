@@ -12,7 +12,6 @@ func _ready():
 	$torpedo_ui.visible = false
 	$torpedo_ui/torpedo_confirm.play('select')
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if inWeaponsTerminal && Input.is_action_just_pressed("interact"):

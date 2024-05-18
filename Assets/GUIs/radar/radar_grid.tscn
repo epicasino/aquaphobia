@@ -1,6 +1,7 @@
-[gd_scene load_steps=34 format=3 uid="uid://b21g746ev7f8v"]
+[gd_scene load_steps=35 format=3 uid="uid://b21g746ev7f8v"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/radar_grid.gd" id="1_7egi5"]
+[ext_resource type="PackedScene" uid="uid://duosb5d7ultp5" path="res://Assets/GUIs/radar/large_monster_radar.tscn" id="2_b5bhl"]
 [ext_resource type="PackedScene" uid="uid://cleqcfouqc6gl" path="res://Assets/GUIs/radar/medium_monster_radar.tscn" id="2_jdmjo"]
 [ext_resource type="PackedScene" uid="uid://6vybww4f30oi" path="res://Assets/GUIs/radar/small_monster_radar.tscn" id="3_c3cou"]
 [ext_resource type="Texture2D" uid="uid://c0ltkv3jmab1i" path="res://Assets/GUIs/radar/sprites/Radar_grid.png" id="4_6lygs"]
@@ -326,6 +327,7 @@ animations = [{
 offset_right = 576.0
 offset_bottom = 576.0
 script = ExtResource("1_7egi5")
+largeEnemyScene = ExtResource("2_b5bhl")
 mediumMonsterScene = ExtResource("2_jdmjo")
 smallEnemyScene = ExtResource("3_c3cou")
 
@@ -348,6 +350,10 @@ autostart = true
 
 [node name="ping" type="Timer" parent="SubViewport"]
 wait_time = 5.0
+
+[node name="lg_monster_timer" type="Timer" parent="SubViewport"]
+wait_time = 10.0
+autostart = true
 
 [node name="RadarGrid" type="Sprite2D" parent="SubViewport"]
 position = Vector2(288, 288)
@@ -394,3 +400,4 @@ texture = ExtResource("7_yhwpj")
 [connection signal="timeout" from="SubViewport/small_monster_timer" to="." method="_on_small_monster_timer_timeout"]
 [connection signal="timeout" from="SubViewport/medium_monster_timer" to="." method="_on_medium_monster_timer_timeout"]
 [connection signal="timeout" from="SubViewport/ping" to="." method="_on_ping_timeout"]
+[connection signal="timeout" from="SubViewport/lg_monster_timer" to="." method="_on_lg_monster_timer_timeout"]

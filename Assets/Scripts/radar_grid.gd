@@ -1,13 +1,13 @@
 extends SubViewportContainer
 
 @onready var rng = RandomNumberGenerator.new()
-#@export var largeEnemyScene: PackedScene
+@export var largeEnemyScene: PackedScene
 @export var mediumMonsterScene : PackedScene
 @export var smallEnemyScene : PackedScene
 
 var smallEnemyList = []
 var mediumEnemyList = []
-#var largeEnemyList = []
+var largeEnemyList = []
 
 var smallEnemyDelList = []
 var medEnemyDelList = []
@@ -137,6 +137,9 @@ func _on_ping_timeout():
 	for i in mediumEnemyList.size():
 		var mediumEnemy = mediumEnemyList[i]
 		mediumEnemy.get_node('med_blip').play('blip')
+	for i in largeEnemyList.size():
+		var largeEnemy = largeEnemyList[i]
+		largeEnemy.get_node('large_blip').play('blip')
 		
 	
 func _process(delta):
@@ -154,6 +157,10 @@ func _process(delta):
 		for i in medEnemyDelList.size():
 			mediumEnemyList.remove_at(medEnemyDelList[i])
 		medEnemyDelList = []
+	if lgEnemyDelList.size() != 0:
+		for i in lgEnemyDelList.size():
+			largeEnemyList.remove_at(lgEnemyDelList[i])
+		lgEnemyDelList = []
 	if Global.torpedoLaunched:
 		enemy_on_torpedo_coords_check()
 		Global.torpedoLaunched = false
@@ -175,3 +182,12 @@ func enemy_on_torpedo_coords_check():
 func startUpPing():
 	if !pingStarted:
 		$SubViewport/ping.start()
+
+func _on_lg_monster_timer_timeout():
+	var spawn_area = get_random_int_between(1,3)
+	# top left -> right spawn
+	var largeEnemy = largeEnemyScene.instantiate()
+	largeEnemy.position.x = get_random_int_between(0,8) * 64
+	largeEnemy.position.y = 0
+	add_child(largeEnemy)
+	largeEnemyList.push_back(largeEnemy)
