@@ -3,6 +3,9 @@ extends Area2D
 var inRadar = false
 var openedRadar = false
 
+signal spawn_small_enemy
+signal spawn_medium_enemy
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if inRadar && !openedRadar && Input.is_action_just_pressed("interact"):
@@ -54,3 +57,10 @@ func _on_body_entered(body):
 func _on_body_exited(body):
 	if body.name == 'Player':
 		inRadar = false
+
+
+func _on_radargrid_spawn_small_monster():
+	spawn_small_enemy.emit()
+
+func _on_radargrid_spawn_med_monster():
+	spawn_medium_enemy.emit()

@@ -23,3 +23,5 @@ var gunLockedIn = false
 var reactorHealth = 0
 
 var youLose = false
+
+var radarJammed = false

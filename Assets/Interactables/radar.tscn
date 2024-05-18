@@ -5,6 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://b21g746ev7f8v" path="res://Assets/GUIs/radar/radar_grid.tscn" id="2_lnlwd"]
 [ext_resource type="AudioStream" uid="uid://biqbdgyy77ghl" path="res://Sound/SoundEffects/Submarine_SFX/sonar_ping.wav" id="3_w5o4m"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_blm3h"]
+size = Vector2(128, 128)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_pj5m2"]
 atlas = ExtResource("2_iwe1c")
 region = Rect2(0, 0, 64, 64)
@@ -48,21 +51,18 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_blm3h"]
-size = Vector2(128, 128)
-
 [node name="radar" type="Area2D"]
 script = ExtResource("1_5et3j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(64, 64)
+shape = SubResource("RectangleShape2D_blm3h")
 
 [node name="radar-sprites" type="AnimatedSprite2D" parent="."]
 position = Vector2(15, 32)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_cnybr")
 centered = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(64, 64)
-shape = SubResource("RectangleShape2D_blm3h")
 
 [node name="radar-grid" parent="." instance=ExtResource("2_lnlwd")]
 visible = false
@@ -81,3 +81,5 @@ panning_strength = 3.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="spawn_med_monster" from="radar-grid" to="." method="_on_radargrid_spawn_med_monster"]
+[connection signal="spawn_small_monster" from="radar-grid" to="." method="_on_radargrid_spawn_small_monster"]

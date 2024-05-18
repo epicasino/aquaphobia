@@ -1,0 +1,263 @@
+[gd_scene load_steps=32 format=3 uid="uid://uvel4gn55kf3"]
+
+[ext_resource type="Script" path="res://Assets/Enemies/medium_monster.gd" id="1_03e22"]
+[ext_resource type="Texture2D" uid="uid://e851rvev16rj" path="res://Assets/Placeholder/drillshark_flattened-Sheet.png" id="1_tm72u"]
+[ext_resource type="AudioStream" uid="uid://xdh78f0smonk" path="res://Sound/SoundEffects/Creature_SFX/Drill Shark/drill_shark_drill1.wav" id="3_dv4j7"]
+[ext_resource type="AudioStream" uid="uid://bj8d4eblto8h6" path="res://Sound/SoundEffects/Creature_SFX/Drill Shark/drill_shark_drill2.wav" id="4_2ok5l"]
+[ext_resource type="AudioStream" uid="uid://diwbe1qnje7e5" path="res://Sound/SoundEffects/Creature_SFX/Drill Shark/drill_shark_longdrill.wav" id="5_lp8nl"]
+
+[sub_resource type="Curve2D" id="Curve2D_waygm"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 64, -448, -55.1543, -103.238, 55.1543, 103.238, 64, -192, 0, 0, 0, 0, 64, 0, -45.2548, -62.2254, 45.2548, 62.2254, 64, 192, 0, 0, 0, 0, 64, 448, 0, 0, 0, 0, 64, 448, 0, 0, 0, 0, 64, 576)
+}
+point_count = 7
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8c46"]
+atlas = ExtResource("1_tm72u")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4r0j"]
+atlas = ExtResource("1_tm72u")
+region = Rect2(320, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vcmfb"]
+atlas = ExtResource("1_tm72u")
+region = Rect2(640, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhfgs"]
+atlas = ExtResource("1_tm72u")
+region = Rect2(4480, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgwy4"]
+atlas = ExtResource("1_tm72u")
+region = Rect2(4800, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b68et"]
+atlas = ExtResource("1_tm72u")
+region = Rect2(5120, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3bv5p"]
+atlas = ExtResource("1_tm72u")
+region = Rect2(5440, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4a4v"]
+atlas = ExtResource("1_tm72u")
+region = Rect2(5760, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfkko"]
+atlas = ExtResource("1_tm72u")
+region = Rect2(6080, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evfse"]
+atlas = ExtResource("1_tm72u")
+region = Rect2(960, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgrfb"]
+atlas = ExtResource("1_tm72u")
+region = Rect2(1280, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mblf4"]
+atlas = ExtResource("1_tm72u")
+region = Rect2(1600, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ivob"]
+atlas = ExtResource("1_tm72u")
+region = Rect2(1920, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_401fn"]
+atlas = ExtResource("1_tm72u")
+region = Rect2(2240, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bpyvp"]
+atlas = ExtResource("1_tm72u")
+region = Rect2(2560, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ktuj5"]
+atlas = ExtResource("1_tm72u")
+region = Rect2(2880, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uu4xf"]
+atlas = ExtResource("1_tm72u")
+region = Rect2(3200, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1s3n"]
+atlas = ExtResource("1_tm72u")
+region = Rect2(3520, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbne1"]
+atlas = ExtResource("1_tm72u")
+region = Rect2(3840, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38psq"]
+atlas = ExtResource("1_tm72u")
+region = Rect2(4160, 0, 320, 320)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s0qdu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8c46")
+}],
+"loop": true,
+"name": &"afk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4r0j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vcmfb")
+}],
+"loop": true,
+"name": &"charging",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dhfgs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgwy4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b68et")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3bv5p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4a4v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfkko")
+}],
+"loop": true,
+"name": &"drilling",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evfse")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgrfb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mblf4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ivob")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_401fn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bpyvp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ktuj5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uu4xf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o1s3n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbne1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38psq")
+}],
+"loop": false,
+"name": &"impact",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ncyd"]
+
+[sub_resource type="Animation" id="Animation_60xep"]
+resource_name = "move_down"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(2.46229, 0.34151),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_pjgh4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xj1s0"]
+_data = {
+"RESET": SubResource("Animation_pjgh4"),
+"move_down": SubResource("Animation_60xep")
+}
+
+[node name="medium_monster" type="Path2D"]
+curve = SubResource("Curve2D_waygm")
+script = ExtResource("1_03e22")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+position = Vector2(64, -448)
+rotation = 1.5708
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatableBody2D"]
+position = Vector2(0, -1.81899e-12)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_s0qdu")
+animation = &"afk"
+frame_progress = 0.524901
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+shape = SubResource("RectangleShape2D_8ncyd")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(64, -448)
+rotation = 1.5708
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D"]
+remote_path = NodePath("../../AnimatableBody2D")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xj1s0")
+}
+
+[node name="wind-up-timer" type="Timer" parent="."]
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="drill_1" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("3_dv4j7")
+
+[node name="drill_2" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("4_2ok5l")
+
+[node name="longdrill" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("5_lp8nl")
+
+[connection signal="timeout" from="wind-up-timer" to="." method="_on_winduptimer_timeout"]
+[connection signal="finished" from="Sounds/drill_1" to="." method="_on_drill_1_finished"]
+[connection signal="finished" from="Sounds/drill_2" to="." method="_on_drill_2_finished"]
+[connection signal="finished" from="Sounds/longdrill" to="." method="_on_longdrill_finished"]

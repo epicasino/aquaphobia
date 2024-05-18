@@ -5,6 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://dxoa6f0b23yhe" path="res://Assets/GUIs/weapons_system/weapons_gui.tscn" id="2_50dfg"]
 [ext_resource type="PackedScene" uid="uid://bgyqayh16188y" path="res://Assets/GUIs/weapons_system/torpedo_ui.tscn" id="4_17lme"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_otakd"]
+size = Vector2(128, 128)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_5wovk"]
 atlas = ExtResource("1_f81b3")
 region = Rect2(0, 0, 128, 128)
@@ -97,21 +100,18 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_otakd"]
-size = Vector2(128, 128)
-
 [node name="weapons_system" type="Area2D"]
 script = ExtResource("1_yx1dy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(64, 64)
+shape = SubResource("RectangleShape2D_otakd")
 
 [node name="weapons_system_sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7apuj")
 frame = 2
 frame_progress = 0.282918
 centered = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(64, 64)
-shape = SubResource("RectangleShape2D_otakd")
 
 [node name="weapons_gui" parent="." instance=ExtResource("2_50dfg")]
 visible = false
