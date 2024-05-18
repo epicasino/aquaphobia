@@ -6,8 +6,6 @@ var usingTerminal = false
 var torpedoChoice = 'no'
 var torpedoLock = false
 
-var gunLock = false
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$weapons_gui.visible = false
@@ -21,11 +19,11 @@ func _process(delta):
 		if usingTerminal && $torpedo_ui.visible:
 			start_torpedo_launch()
 		elif usingTerminal && $weapons_gui.visible:
-			if !gunLock:
-				gunLock = true
+			if !Global.gunLockedIn:
+				Global.gunLockedIn = true
 				$weapons_gui/guns_terminal_select.play("selected")
 			else: 
-				gunLock = false
+				Global.gunLockedIn = false
 				$weapons_gui/guns_terminal_select.play("default")
 		else:
 			get_weapon_screen()
@@ -93,9 +91,9 @@ func set_torpedo_button(option: bool):
 
 func weapons_contols():
 	if !Global.chosenWeapon:
-		if Input.is_action_just_pressed("move_left") && !gunLock:
+		if Input.is_action_just_pressed("move_left") && !Global.gunLockedIn:
 			Global.gunPosition = false
-		if Input.is_action_just_pressed("move_right") && !gunLock:
+		if Input.is_action_just_pressed("move_right") && !Global.gunLockedIn:
 			Global.gunPosition = true
 	else: 
 		if Input.is_action_just_pressed("move_left") && !torpedoLock:
