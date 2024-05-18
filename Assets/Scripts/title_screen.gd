@@ -13,10 +13,13 @@ func start_tween():
 	tween.tween_property($"moving_title_text", 'position', offset, duration / 2)
 	tween.tween_property($"moving_title_text", 'position', Vector2.ZERO, duration / 2)
 
-
 func _on_start_pressed():
 	Global.game_start = true
 
 
 func _on_quit_pressed():
 	get_tree().quit()
+
+func _process(delta):
+	if Global.game_start:
+		visible = false

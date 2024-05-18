@@ -1,0 +1,132 @@
+[gd_scene load_steps=19 format=3 uid="uid://dda7pt55t7ecr"]
+
+[ext_resource type="Texture2D" uid="uid://bfo4fqtrq354e" path="res://Assets/Interactables/Sprites/weapons_terminal_animated-Sheet.png" id="1_f81b3"]
+[ext_resource type="Script" path="res://Assets/Scripts/weapons_system.gd" id="1_yx1dy"]
+[ext_resource type="PackedScene" uid="uid://dxoa6f0b23yhe" path="res://Assets/GUIs/weapons_system/weapons_gui.tscn" id="2_50dfg"]
+[ext_resource type="PackedScene" uid="uid://bgyqayh16188y" path="res://Assets/GUIs/weapons_system/torpedo_ui.tscn" id="4_17lme"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5wovk"]
+atlas = ExtResource("1_f81b3")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_olvag"]
+atlas = ExtResource("1_f81b3")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_falhs"]
+atlas = ExtResource("1_f81b3")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mv1n6"]
+atlas = ExtResource("1_f81b3")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33scc"]
+atlas = ExtResource("1_f81b3")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dcyi"]
+atlas = ExtResource("1_f81b3")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqjdu"]
+atlas = ExtResource("1_f81b3")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2m7c3"]
+atlas = ExtResource("1_f81b3")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7138d"]
+atlas = ExtResource("1_f81b3")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hp4kr"]
+atlas = ExtResource("1_f81b3")
+region = Rect2(1152, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vivjw"]
+atlas = ExtResource("1_f81b3")
+region = Rect2(1280, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2lo1u"]
+atlas = ExtResource("1_f81b3")
+region = Rect2(1408, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7apuj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5wovk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_olvag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_falhs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mv1n6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33scc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1dcyi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kqjdu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2m7c3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7138d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hp4kr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vivjw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2lo1u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_otakd"]
+size = Vector2(128, 128)
+
+[node name="weapons_system" type="Area2D"]
+script = ExtResource("1_yx1dy")
+
+[node name="weapons_system_sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7apuj")
+frame = 2
+frame_progress = 0.282918
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(64, 64)
+shape = SubResource("RectangleShape2D_otakd")
+
+[node name="weapons_gui" parent="." instance=ExtResource("2_50dfg")]
+visible = false
+z_index = 1
+position = Vector2(-224, -224)
+
+[node name="torpedo_ui" parent="." instance=ExtResource("4_17lme")]
+visible = false
+z_index = 1
+position = Vector2(-224, -224)
+
+[node name="torpedo_wait_timer" type="Timer" parent="."]
+wait_time = 2.5
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="torpedo_wait_timer" to="." method="_on_torpedo_wait_timer_timeout"]

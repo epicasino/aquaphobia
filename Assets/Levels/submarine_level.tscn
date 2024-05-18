@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bssihkya8horf"]
+[gd_scene load_steps=24 format=3 uid="uid://bssihkya8horf"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/submarine_level.gd" id="1_6yemq"]
 [ext_resource type="PackedScene" uid="uid://cf000sk5aqqc8" path="res://Assets/Menus/title_screen.tscn" id="1_osq1f"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://bqgdv588i604n" path="res://Assets/Interactables/engine.tscn" id="11_7dqho"]
 [ext_resource type="PackedScene" uid="uid://ljr86tar0y4k" path="res://Assets/Interactables/radar.tscn" id="12_h1qxj"]
 [ext_resource type="PackedScene" uid="uid://d4mwg3hn372j7" path="res://Assets/Interactables/ladder.tscn" id="12_xwcfg"]
+[ext_resource type="PackedScene" uid="uid://dda7pt55t7ecr" path="res://Assets/Interactables/weapons_system.tscn" id="13_d5w45"]
+[ext_resource type="PackedScene" uid="uid://c4s4kwgk33f0g" path="res://Assets/Interactables/torpedo.tscn" id="14_mix15"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hr0mv"]
 texture = ExtResource("2_xwq63")
@@ -381,17 +383,24 @@ libraries = {
 }
 
 [node name="screen" parent="." instance=ExtResource("10_1s81d")]
-position = Vector2(967, 242)
+position = Vector2(958, 241)
 
 [node name="engine" parent="." instance=ExtResource("11_7dqho")]
 position = Vector2(704, 385)
 
 [node name="radar" parent="." instance=ExtResource("12_h1qxj")]
-position = Vector2(1600, 193)
+position = Vector2(1600, 194)
 
 [node name="ladder" parent="." instance=ExtResource("12_xwcfg")]
 position = Vector2(1080, 320)
 scale = Vector2(1.715, 1.715)
+
+[node name="weapons_system" parent="." instance=ExtResource("13_d5w45")]
+position = Vector2(1192, 192)
+
+[node name="Torpedo" parent="." instance=ExtResource("14_mix15")]
+z_index = -1
+position = Vector2(691, -384)
 
 [node name="Player" parent="." instance=ExtResource("3_otlpw")]
 position = Vector2(743, 262)

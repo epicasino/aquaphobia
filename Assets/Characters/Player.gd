@@ -9,6 +9,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var animation_locked : bool = false
 var direction : Vector2 = Vector2.ZERO
 var on_ladder = false
+var frozen = false
 
 func _physics_process(delta):
 	
@@ -17,7 +18,7 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor() && !frozen:
 		jump()
 
 	# Get the input direction and handle the movement/deceleration.
@@ -26,27 +27,8 @@ func _physics_process(delta):
 	
 	if direction:
 		# freeze player if game has not started
-		if not Global.game_start:
+		if frozen:
 			velocity.x = 0
-			velocity.y = 0
-		# if player goes to radar and turns on the radar, freeze movement
-		elif get_parent().get_node('radar').get_node('radar-grid').visible == true:
-			velocity.x = 0
-			velocity.y = 0
-			# I made this while I had 1 and a half beers. Sets up the torpedo system and controls on the radar.
-			if !Global.torpedoLockedIn:
-				if Input.is_action_just_pressed("move_up"):
-					if Global.torpedoCoordinates.y > 0:
-						Global.torpedoCoordinates.y -= 64
-				if Input.is_action_just_pressed("move_down"):
-					if Global.torpedoCoordinates.y < 448:
-						Global.torpedoCoordinates.y += 64
-				if Input.is_action_just_pressed("move_left"):
-					if Global.torpedoCoordinates.x > 0:
-						Global.torpedoCoordinates.x -= 64
-				if Input.is_action_just_pressed("move_right"):
-					if Global.torpedoCoordinates.x < 512:
-						Global.torpedoCoordinates.x += 64
 		else:
 			velocity.x = direction.x * speed
 	else:
@@ -61,13 +43,22 @@ func _physics_process(delta):
 			velocity.y = speed
 		else:
 			velocity.y = 0
-
+			
+	
 	move_and_slide()
 	update_animate()
 	update_facing_direction()
+	check_frozen()
+
+func check_frozen():
+	if (get_parent().get_node('radar').get_node('radar-grid').visible || 
+	get_parent().get_node('weapons_system').usingTerminal || 
+	!Global.game_start):
+		frozen = true
+	else: frozen = false
 
 func update_animate():
-	if not animation_locked:
+	if not animation_locked && !frozen:
 		if direction.x != 0:
 			if on_ladder && not is_on_floor():
 				animated_sprite.play('climbing')
@@ -82,10 +73,11 @@ func update_animate():
 				animated_sprite.play('idle')
 
 func update_facing_direction():
-	if direction.x > 0:
-		animated_sprite.flip_h = false
-	elif direction.x < 0:
-		animated_sprite.flip_h = true
+	if !frozen: 
+		if direction.x > 0:
+			animated_sprite.flip_h = false
+		elif direction.x < 0:
+			animated_sprite.flip_h = true
 
 func jump():
 	velocity.y = jump_velocity

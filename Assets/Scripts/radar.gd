@@ -23,6 +23,24 @@ func _process(delta):
 	if inRadar && Input.is_action_just_pressed("cancel"):
 		$"radar-grid".visible = false
 		openedRadar = false
+	
+	radar_torpedo_controls()
+
+# I made this while I had 1 and a half beers. Sets up the torpedo system and controls on the radar.
+func radar_torpedo_controls():
+	if !Global.torpedoLockedIn && $"radar-grid".visible:
+		if Input.is_action_just_pressed("move_up"):
+			if Global.torpedoCoordinates.y > 0:
+				Global.torpedoCoordinates.y -= 64
+		if Input.is_action_just_pressed("move_down"):
+			if Global.torpedoCoordinates.y < 448:
+				Global.torpedoCoordinates.y += 64
+		if Input.is_action_just_pressed("move_left"):
+			if Global.torpedoCoordinates.x > 0:
+				Global.torpedoCoordinates.x -= 64
+		if Input.is_action_just_pressed("move_right"):
+			if Global.torpedoCoordinates.x < 512:
+				Global.torpedoCoordinates.x += 64
 
 func _on_body_entered(body):
 	if body.name == 'Player':

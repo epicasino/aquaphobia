@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2a1lb6cwj10e"
-path="res://.godot/imported/generator_animated-Sheet.png-f1a6b243a28b9510933cf1812d4bf53e.ctex"
+uid="uid://eg4a74gvjewr"
+path="res://.godot/imported/torpedo_terminal_ui_selection.png-d82f0826734779174ec42d749a4c555d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GUIs/generator_animated-Sheet.png"
-dest_files=["res://.godot/imported/generator_animated-Sheet.png-f1a6b243a28b9510933cf1812d4bf53e.ctex"]
+source_file="res://Assets/GUIs/weapons_system/Sprites/torpedo_terminal_ui_selection.png"
+dest_files=["res://.godot/imported/torpedo_terminal_ui_selection.png-d82f0826734779174ec42d749a4c555d.ctex"]
 
 [params]
 

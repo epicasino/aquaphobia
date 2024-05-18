@@ -6,7 +6,7 @@ extends SubViewportContainer
 @export var smallEnemyScene : PackedScene
 
 var smallEnemyList = []
-var mediumMonsterList = []
+var mediumEnemyList = []
 #var largeEnemyList = []
 
 var smallEnemyDelList = []
@@ -46,21 +46,21 @@ func _on_spawn_timer_timeout():
 					mediumMonster.position.x = get_random_int_between(0,8) * 64
 					mediumMonster.position.y = 0
 					add_child(mediumMonster)
-					mediumMonsterList.push_back(mediumMonster)
+					mediumEnemyList.push_back(mediumMonster)
 				# top left -> bottom left
 				2:
 					var mediumMonster = mediumMonsterScene.instantiate()
 					mediumMonster.position.x = 0
 					mediumMonster.position.y = get_random_int_between(0,7) * 64
 					add_child(mediumMonster)
-					mediumMonsterList.push_back(mediumMonster)
+					mediumEnemyList.push_back(mediumMonster)
 				# top right -> bottom right
 				3:
 					var mediumMonster = mediumMonsterScene.instantiate()
 					mediumMonster.position.x = 512
 					mediumMonster.position.y = get_random_int_between(0,7) * 64
 					add_child(mediumMonster)
-					mediumMonsterList.push_back(mediumMonster)
+					mediumEnemyList.push_back(mediumMonster)
 		# Small Monster
 		else: 
 			match spawn_area:
@@ -109,8 +109,8 @@ func _on_small_monster_timer_timeout():
 
 
 func _on_medium_monster_timer_timeout():
-	for i in mediumMonsterList.size():
-		var mediumMonster = mediumMonsterList[i]
+	for i in mediumEnemyList.size():
+		var mediumMonster = mediumEnemyList[i]
 		if mediumMonster.position.x < 256:
 			mediumMonster.position.x += 64
 		elif mediumMonster.position.x > 256:
@@ -134,8 +134,8 @@ func _on_ping_timeout():
 	for i in smallEnemyList.size():
 		var smallEnemy = smallEnemyList[i]
 		smallEnemy.get_node('small_blip').play('blip')
-	for i in mediumMonsterList.size():
-		var mediumEnemy = mediumMonsterList[i]
+	for i in mediumEnemyList.size():
+		var mediumEnemy = mediumEnemyList[i]
 		mediumEnemy.get_node('med_blip').play('blip')
 		
 	
@@ -152,8 +152,25 @@ func _process(delta):
 		smallEnemyDelList = []
 	if medEnemyDelList.size() != 0:
 		for i in medEnemyDelList.size():
-			mediumMonsterList.remove_at(medEnemyDelList[i])
+			mediumEnemyList.remove_at(medEnemyDelList[i])
 		medEnemyDelList = []
+	if Global.torpedoLaunched:
+		enemy_on_torpedo_coords_check()
+		Global.torpedoLaunched = false
+
+func enemy_on_torpedo_coords_check():
+	for i in smallEnemyList.size():
+		var smallEnemy = smallEnemyList[i]
+		if smallEnemy.position == Global.torpedoCoordinates:
+			smallEnemyDelList.push_back(i)
+			remove_child(smallEnemy)
+			print('hit')
+	for i in mediumEnemyList.size():
+		var mediumEnemy = mediumEnemyList[i]
+		if mediumEnemy.position == Global.torpedoCoordinates:
+			medEnemyDelList.push_back(i)
+			remove_child(mediumEnemy)
+			print('hit')
 
 func startUpPing():
 	if !pingStarted:

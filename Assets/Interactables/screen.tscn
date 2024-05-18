@@ -1,6 +1,6 @@
 [gd_scene load_steps=51 format=3 uid="uid://bh4nwnugd4pet"]
 
-[ext_resource type="Script" path="res://Assets/Interactables/screen.gd" id="1_76q2n"]
+[ext_resource type="Script" path="res://Assets/Scripts/screen.gd" id="1_76q2n"]
 [ext_resource type="Texture2D" uid="uid://ch18cmfdw4wci" path="res://Assets/Interactables/Sprites/terminal_and_monitor_2.png" id="1_wpqoh"]
 [ext_resource type="Texture2D" uid="uid://chacdoakcuqmh" path="res://Assets/Interactables/Sprites/rescue_team_monitor_flattened-Sheet.png" id="2_8l6v0"]
 [ext_resource type="PackedScene" uid="uid://3hk87ylku6ce" path="res://Assets/GUIs/textbox/text_box.tscn" id="4_0n4xl"]

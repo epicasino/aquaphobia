@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://bgyqayh16188y"]
+
+[ext_resource type="Texture2D" uid="uid://gw3lkcp4q5hr" path="res://Assets/GUIs/weapons_system/Sprites/tpt_ui_ready.png" id="1_sfde1"]
+[ext_resource type="Texture2D" uid="uid://eg4a74gvjewr" path="res://Assets/GUIs/weapons_system/Sprites/torpedo_terminal_ui_selection.png" id="2_bipir"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivfdq"]
+atlas = ExtResource("2_bipir")
+region = Rect2(0, 0, 208, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kjbsk"]
+atlas = ExtResource("2_bipir")
+region = Rect2(208, 0, 208, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c0olp"]
+atlas = ExtResource("2_bipir")
+region = Rect2(0, 0, 208, 176)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k7skc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivfdq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kjbsk")
+}],
+"loop": true,
+"name": &"confirm",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c0olp")
+}],
+"loop": true,
+"name": &"select",
+"speed": 5.0
+}]
+
+[node name="torpedo_ui" type="Node2D"]
+
+[node name="TptUiReady" type="Sprite2D" parent="."]
+texture = ExtResource("1_sfde1")
+centered = false
+
+[node name="torpedo_confirm" type="AnimatedSprite2D" parent="."]
+position = Vector2(432, 448)
+sprite_frames = SubResource("SpriteFrames_k7skc")
+animation = &"select"
