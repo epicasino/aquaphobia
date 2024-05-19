@@ -1,7 +1,7 @@
-[gd_scene load_steps=37 format=3 uid="uid://uvel4gn55kf3"]
+[gd_scene load_steps=48 format=3 uid="uid://uvel4gn55kf3"]
 
 [ext_resource type="Script" path="res://Assets/Enemies/medium_monster.gd" id="1_03e22"]
-[ext_resource type="Texture2D" uid="uid://e851rvev16rj" path="res://Assets/Placeholder/drillshark_flattened-Sheet.png" id="1_tm72u"]
+[ext_resource type="Texture2D" uid="uid://e851rvev16rj" path="res://Assets/Interactables/Sprites/drillshark_flattened-Sheet.png" id="1_tm72u"]
 [ext_resource type="AudioStream" uid="uid://xdh78f0smonk" path="res://Sound/SoundEffects/Creature_SFX/Drill Shark/drill_shark_drill1.wav" id="3_dv4j7"]
 [ext_resource type="AudioStream" uid="uid://bj8d4eblto8h6" path="res://Sound/SoundEffects/Creature_SFX/Drill Shark/drill_shark_drill2.wav" id="4_2ok5l"]
 [ext_resource type="AudioStream" uid="uid://cuwfbdqk5lqj8" path="res://Sound/SoundEffects/Creature_SFX/Drill Shark/drill_shark_charge.wav" id="5_8jl61"]
@@ -16,6 +16,50 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 64, -632, -55.1543, -103.238, 55.1543, 103.238, 64, -192, 0, 0, 0, 0, 64, 0, -45.2548, -62.2254, 45.2548, 62.2254, 64, 192, 0, 0, 0, 0, 64, 448, 0, 0, 0, 0, 64, 448, 0, 0, 0, 0, 64, 640)
 }
 point_count = 7
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_re8i2"]
+atlas = ExtResource("1_tm72u")
+region = Rect2(6400, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oyeph"]
+atlas = ExtResource("1_tm72u")
+region = Rect2(6720, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5eug"]
+atlas = ExtResource("1_tm72u")
+region = Rect2(7040, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ih8pq"]
+atlas = ExtResource("1_tm72u")
+region = Rect2(7360, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ja6ad"]
+atlas = ExtResource("1_tm72u")
+region = Rect2(7680, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lr00q"]
+atlas = ExtResource("1_tm72u")
+region = Rect2(8000, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pot12"]
+atlas = ExtResource("1_tm72u")
+region = Rect2(8320, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82ecm"]
+atlas = ExtResource("1_tm72u")
+region = Rect2(8640, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfdcu"]
+atlas = ExtResource("1_tm72u")
+region = Rect2(8960, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6omw4"]
+atlas = ExtResource("1_tm72u")
+region = Rect2(9280, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sal5d"]
+atlas = ExtResource("1_tm72u")
+region = Rect2(9600, 0, 320, 320)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g8c46"]
 atlas = ExtResource("1_tm72u")
@@ -99,6 +143,49 @@ region = Rect2(4160, 0, 320, 320)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s0qdu"]
 animations = [{
+"frames": [],
+"loop": true,
+"name": &"Fleeing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_re8i2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oyeph")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s5eug")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ih8pq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ja6ad")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lr00q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pot12")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_82ecm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qfdcu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6omw4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sal5d")
+}],
+"loop": true,
+"name": &"Turn to flee",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_g8c46")
@@ -232,8 +319,7 @@ rotation = 1.5708
 position = Vector2(0, -1.81899e-12)
 rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_s0qdu")
-animation = &"afk"
-frame_progress = 0.524901
+animation = &"Fleeing"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
 position = Vector2(-12, 0)

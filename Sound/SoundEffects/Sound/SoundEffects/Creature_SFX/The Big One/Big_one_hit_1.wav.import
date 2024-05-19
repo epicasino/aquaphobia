@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bv0wh478pf4mh"
+path="res://.godot/imported/Big_one_hit_1.wav-abd9d4fe958c60e2f5dd6327cd4db806.sample"
+
+[deps]
+
+source_file="res://Sound/SoundEffects/Creature_SFX/The Big One/Big_one_hit_1.wav"
+dest_files=["res://.godot/imported/Big_one_hit_1.wav-abd9d4fe958c60e2f5dd6327cd4db806.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

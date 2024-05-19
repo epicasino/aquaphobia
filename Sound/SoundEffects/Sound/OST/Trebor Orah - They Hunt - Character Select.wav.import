@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://jm70257dbrl5"
+path="res://.godot/imported/Trebor Orah - They Hunt - Character Select.wav-8a36dd98a5c733948b0a4ae2599db8d1.sample"
+
+[deps]
+
+source_file="res://Sound/OST/Trebor Orah - They Hunt - Character Select.wav"
+dest_files=["res://.godot/imported/Trebor Orah - They Hunt - Character Select.wav-8a36dd98a5c733948b0a4ae2599db8d1.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
