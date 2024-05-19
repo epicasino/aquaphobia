@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bssihkya8horf"]
+[gd_scene load_steps=27 format=3 uid="uid://bssihkya8horf"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/submarine_level.gd" id="1_6yemq"]
 [ext_resource type="PackedScene" uid="uid://cf000sk5aqqc8" path="res://Assets/Menus/title_screen.tscn" id="1_osq1f"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://c4s4kwgk33f0g" path="res://Assets/Interactables/torpedo.tscn" id="14_mix15"]
 [ext_resource type="PackedScene" uid="uid://cjca3yt0wsh3s" path="res://Assets/Interactables/platform.tscn" id="15_eleax"]
 [ext_resource type="PackedScene" uid="uid://uvel4gn55kf3" path="res://Assets/Enemies/medium_monster.tscn" id="17_iqvs1"]
+[ext_resource type="PackedScene" uid="uid://xgc4ikhc6rys" path="res://Assets/Parts/turret.tscn" id="18_r4lv7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hr0mv"]
 texture = ExtResource("2_xwq63")
@@ -237,7 +238,7 @@ sources/0 = SubResource("TileSetAtlasSource_hr0mv")
 [sub_resource type="Animation" id="Animation_ogrd3"]
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = false
+tracks/0/enabled = true
 tracks/0/path = NodePath(".:zoom")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
@@ -398,6 +399,10 @@ z_index = -2
 position = Vector2(1064, 328)
 scale = Vector2(1.715, 1.715)
 
+[node name="platform" parent="ladder" instance=ExtResource("15_eleax")]
+position = Vector2(32.6531, 9.32944)
+scale = Vector2(0.58309, 0.58309)
+
 [node name="weapons_system" parent="." instance=ExtResource("13_d5w45")]
 position = Vector2(1280, 194)
 
@@ -405,16 +410,16 @@ position = Vector2(1280, 194)
 z_index = -1
 position = Vector2(640, -384)
 
-[node name="platform" parent="." instance=ExtResource("15_eleax")]
-position = Vector2(1120, 344)
-
 [node name="Player" parent="." instance=ExtResource("3_otlpw")]
 position = Vector2(743, 262)
 scale = Vector2(1.8, 1.8)
 speed = 250.0
 
 [node name="medium_monster" parent="." instance=ExtResource("17_iqvs1")]
-position = Vector2(897, -576)
+position = Vector2(928, -576)
+
+[node name="turret" parent="." instance=ExtResource("18_r4lv7")]
+position = Vector2(1024, -132)
 
 [connection signal="body_entered" from="ladder" to="Player" method="_on_ladder_body_entered"]
 [connection signal="body_exited" from="ladder" to="Player" method="_on_ladder_body_exited"]

@@ -25,3 +25,7 @@ var reactorHealth = 0
 var youLose = false
 
 var radarJammed = false
+
+func _process(delta):
+	#print(reactorHealth)
+	pass

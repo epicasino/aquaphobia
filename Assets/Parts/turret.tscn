@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://xgc4ikhc6rys"]
+
+[ext_resource type="Texture2D" uid="uid://dvqb0s1pt16rh" path="res://Assets/Placeholder/ts_turret.png" id="1_7lqsk"]
+[ext_resource type="Texture2D" uid="uid://doklg1q28vcfq" path="res://Assets/Placeholder/turret_barrel.png" id="2_tmlj1"]
+[ext_resource type="Script" path="res://Assets/Parts/TurretBarrel.gd" id="3_uyy5u"]
+
+[node name="turret" type="Node2D"]
+
+[node name="TsTurret" type="Sprite2D" parent="."]
+position = Vector2(96.0001, 96)
+scale = Vector2(0.395833, 0.395833)
+texture = ExtResource("1_7lqsk")
+
+[node name="TurretBarrel" type="Sprite2D" parent="."]
+position = Vector2(96, 96)
+texture = ExtResource("2_tmlj1")
+script = ExtResource("3_uyy5u")
