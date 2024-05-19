@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://d18aw3jgkuhrm"
-path="res://.godot/imported/Dolphin_Sad.wav-3328a5b5f901578c84dc923fb62bcdeb.sample"
+path="res://.godot/imported/Dolphin_Sad.wav-4af9eaec5e4d69ea85145d14bfb878a9.sample"
 
 [deps]
 
-source_file="res://Sound/SoundEffects/Dolphin/Dolphin_Sad.wav"
-dest_files=["res://.godot/imported/Dolphin_Sad.wav-3328a5b5f901578c84dc923fb62bcdeb.sample"]
+source_file="res://Sound/SoundEffects/Sound/SoundEffects/Dolphin/Dolphin_Sad.wav"
+dest_files=["res://.godot/imported/Dolphin_Sad.wav-4af9eaec5e4d69ea85145d14bfb878a9.sample"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dhgkro6jf06kn"
-path="res://.godot/imported/repair_hammer1.wav-33da86c196d32ea3f4f069d49f6f2249.sample"
+path="res://.godot/imported/repair_hammer1.wav-5b9f86473dac88efc7ab5082f63881c3.sample"
 
 [deps]
 
-source_file="res://Sound/SoundEffects/Submarine_SFX/repair_hammer1.wav"
-dest_files=["res://.godot/imported/repair_hammer1.wav-33da86c196d32ea3f4f069d49f6f2249.sample"]
+source_file="res://Sound/SoundEffects/Sound/SoundEffects/Submarine_SFX/repair_hammer1.wav"
+dest_files=["res://.godot/imported/repair_hammer1.wav-5b9f86473dac88efc7ab5082f63881c3.sample"]
 
 [params]
 

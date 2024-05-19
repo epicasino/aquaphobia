@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://34sn86sx66s2"
-path="res://.godot/imported/Dolphin_Hi.wav-89c7d6650bc86185ec3c1f546d27186e.sample"
+path="res://.godot/imported/Dolphin_Hi.wav-f72d702fec34b0d1ad705f5a3d052724.sample"
 
 [deps]
 
-source_file="res://Sound/SoundEffects/Dolphin/Dolphin_Hi.wav"
-dest_files=["res://.godot/imported/Dolphin_Hi.wav-89c7d6650bc86185ec3c1f546d27186e.sample"]
+source_file="res://Sound/SoundEffects/Sound/SoundEffects/Dolphin/Dolphin_Hi.wav"
+dest_files=["res://.godot/imported/Dolphin_Hi.wav-f72d702fec34b0d1ad705f5a3d052724.sample"]
 
 [params]
 

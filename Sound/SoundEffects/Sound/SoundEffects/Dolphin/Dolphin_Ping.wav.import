@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://ct40nm6p7e54f"
-path="res://.godot/imported/Dolphin_Ping.wav-f03852a31cce9aeff734102ab4d235ce.sample"
+path="res://.godot/imported/Dolphin_Ping.wav-1a15267969d28329e64a7202e9e42a1f.sample"
 
 [deps]
 
-source_file="res://Sound/SoundEffects/Dolphin/Dolphin_Ping.wav"
-dest_files=["res://.godot/imported/Dolphin_Ping.wav-f03852a31cce9aeff734102ab4d235ce.sample"]
+source_file="res://Sound/SoundEffects/Sound/SoundEffects/Dolphin/Dolphin_Ping.wav"
+dest_files=["res://.godot/imported/Dolphin_Ping.wav-1a15267969d28329e64a7202e9e42a1f.sample"]
 
 [params]
 

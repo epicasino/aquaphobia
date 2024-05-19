@@ -15,12 +15,9 @@ func _ready():
 func _physics_process(delta):
 	velocity = Vector2(0, -speed).rotated(dir)
 	move_and_slide()
-
-
-func _on_area_2d_body_entered(body):
-	print('HIT')
+	
+func _on_timer_timeout():
 	queue_free()
 
-
-func _on_timer_timeout():
+func _on_area_2d_body_entered(body):
 	queue_free()

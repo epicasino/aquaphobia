@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://jy71sat3wtct"
-path="res://.godot/imported/Trebor Orah - Ambience 2.wav-b0b81773136378dc6752a22868df6e8c.sample"
+path="res://.godot/imported/Trebor Orah - Ambience 2.wav-c8eac2b2c92484ecefc3597fb38b8f0f.sample"
 
 [deps]
 
-source_file="res://Sound/OST/Trebor Orah - Ambience 2.wav"
-dest_files=["res://.godot/imported/Trebor Orah - Ambience 2.wav-b0b81773136378dc6752a22868df6e8c.sample"]
+source_file="res://Sound/SoundEffects/Sound/OST/Trebor Orah - Ambience 2.wav"
+dest_files=["res://.godot/imported/Trebor Orah - Ambience 2.wav-c8eac2b2c92484ecefc3597fb38b8f0f.sample"]
 
 [params]
 

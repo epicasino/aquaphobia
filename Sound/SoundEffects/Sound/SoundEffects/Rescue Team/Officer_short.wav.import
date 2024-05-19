@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cqqbmirbu3bjr"
-path="res://.godot/imported/Officer_short.wav-7bf93526a09691cc853949208147d000.sample"
+path="res://.godot/imported/Officer_short.wav-ca8404e03e5c645f3a564f6071dc4909.sample"
 
 [deps]
 
-source_file="res://Sound/SoundEffects/Rescue Team/Officer_short.wav"
-dest_files=["res://.godot/imported/Officer_short.wav-7bf93526a09691cc853949208147d000.sample"]
+source_file="res://Sound/SoundEffects/Sound/SoundEffects/Rescue Team/Officer_short.wav"
+dest_files=["res://.godot/imported/Officer_short.wav-ca8404e03e5c645f3a564f6071dc4909.sample"]
 
 [params]
 

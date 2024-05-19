@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cpvk1m7g50kg1"]
 
-[ext_resource type="Script" path="res://Assets/Parts/bullet.gd" id="1_eqiv8"]
+[ext_resource type="Script" path="res://Assets/Scripts/bullet.gd" id="1_eqiv8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fkly8"]
 size = Vector2(8, 16)
@@ -13,7 +13,7 @@ shape = SubResource("RectangleShape2D_fkly8")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 position = Vector2(-12, -16)
-color = Color(0.273873, 0.273873, 0.273873, 1)
+color = Color(0.984314, 0.866667, 0, 1)
 polygon = PackedVector2Array(8, 8, 16, 8, 16, 24, 8, 24)
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -22,7 +22,7 @@ polygon = PackedVector2Array(8, 8, 16, 8, 16, 24, 8, 24)
 shape = SubResource("RectangleShape2D_fkly8")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 2.0
 autostart = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

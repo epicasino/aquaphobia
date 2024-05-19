@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bv0wh478pf4mh"
-path="res://.godot/imported/Big_one_hit_1.wav-abd9d4fe958c60e2f5dd6327cd4db806.sample"
+path="res://.godot/imported/Big_one_hit_1.wav-7e90521c89947ee6f08ee4b9eb9d52c8.sample"
 
 [deps]
 
-source_file="res://Sound/SoundEffects/Creature_SFX/The Big One/Big_one_hit_1.wav"
-dest_files=["res://.godot/imported/Big_one_hit_1.wav-abd9d4fe958c60e2f5dd6327cd4db806.sample"]
+source_file="res://Sound/SoundEffects/Sound/SoundEffects/Creature_SFX/The Big One/Big_one_hit_1.wav"
+dest_files=["res://.godot/imported/Big_one_hit_1.wav-7e90521c89947ee6f08ee4b9eb9d52c8.sample"]
 
 [params]
 

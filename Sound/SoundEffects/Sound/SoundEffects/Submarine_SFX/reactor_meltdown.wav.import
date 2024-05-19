@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cwt2nqx7kgxpx"
-path="res://.godot/imported/reactor_meltdown.wav-322c932f57e8ac20fbb50d69a61042ad.sample"
+path="res://.godot/imported/reactor_meltdown.wav-85d9574066919cf0e78b22edcdc39d92.sample"
 
 [deps]
 
-source_file="res://Sound/SoundEffects/Submarine_SFX/reactor_meltdown.wav"
-dest_files=["res://.godot/imported/reactor_meltdown.wav-322c932f57e8ac20fbb50d69a61042ad.sample"]
+source_file="res://Sound/SoundEffects/Sound/SoundEffects/Submarine_SFX/reactor_meltdown.wav"
+dest_files=["res://.godot/imported/reactor_meltdown.wav-85d9574066919cf0e78b22edcdc39d92.sample"]
 
 [params]
 

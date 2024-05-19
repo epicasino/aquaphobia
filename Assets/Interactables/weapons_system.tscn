@@ -127,6 +127,11 @@ position = Vector2(-192, -224)
 wait_time = 2.5
 one_shot = true
 
+[node name="gun_shoot_timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="timeout" from="torpedo_wait_timer" to="." method="_on_torpedo_wait_timer_timeout"]
+[connection signal="timeout" from="gun_shoot_timer" to="." method="_on_gun_shoot_timer_timeout"]

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bfqm8rf8rmdds"
-path="res://.godot/imported/Trebor Orah - Sit Rep.wav-f8120f2f59ff3e8c0beef53e76b73972.sample"
+path="res://.godot/imported/Trebor Orah - Sit Rep.wav-02ff94eca3e7dfbd6f50be29133c27ec.sample"
 
 [deps]
 
-source_file="res://Sound/OST/Trebor Orah - Sit Rep.wav"
-dest_files=["res://.godot/imported/Trebor Orah - Sit Rep.wav-f8120f2f59ff3e8c0beef53e76b73972.sample"]
+source_file="res://Sound/SoundEffects/Sound/OST/Trebor Orah - Sit Rep.wav"
+dest_files=["res://.godot/imported/Trebor Orah - Sit Rep.wav-02ff94eca3e7dfbd6f50be29133c27ec.sample"]
 
 [params]
 

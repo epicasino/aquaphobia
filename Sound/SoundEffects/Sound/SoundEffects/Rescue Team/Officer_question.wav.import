@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dvd2nf0iwp1ln"
-path="res://.godot/imported/Officer_question.wav-df72a4ff76d82d3f6d3103a96d2bc0b2.sample"
+path="res://.godot/imported/Officer_question.wav-3c0c7d3506d9ffa933711e205cc0036e.sample"
 
 [deps]
 
-source_file="res://Sound/SoundEffects/Rescue Team/Officer_question.wav"
-dest_files=["res://.godot/imported/Officer_question.wav-df72a4ff76d82d3f6d3103a96d2bc0b2.sample"]
+source_file="res://Sound/SoundEffects/Sound/SoundEffects/Rescue Team/Officer_question.wav"
+dest_files=["res://.godot/imported/Officer_question.wav-3c0c7d3506d9ffa933711e205cc0036e.sample"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://c0aon7rxuel81"
-path="res://.godot/imported/drill_shark_scream2.wav-646bb727828133fc940c97df65c7b495.sample"
+path="res://.godot/imported/drill_shark_scream2.wav-42ac6ded94bbbf162fb277bb94aa3f0d.sample"
 
 [deps]
 
-source_file="res://Sound/SoundEffects/Creature_SFX/Drill Shark/drill_shark_scream2.wav"
-dest_files=["res://.godot/imported/drill_shark_scream2.wav-646bb727828133fc940c97df65c7b495.sample"]
+source_file="res://Sound/SoundEffects/Sound/SoundEffects/Creature_SFX/Drill Shark/drill_shark_scream2.wav"
+dest_files=["res://.godot/imported/drill_shark_scream2.wav-42ac6ded94bbbf162fb277bb94aa3f0d.sample"]
 
 [params]
 

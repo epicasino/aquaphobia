@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cxv40b4djqllp"
-path="res://.godot/imported/Trebor Orah - They Hunt.wav-db6513e98cbf1a11f75ae709d22a5d2b.sample"
+path="res://.godot/imported/Trebor Orah - They Hunt.wav-da5e0c30f36208ddb8fc03ee30362d41.sample"
 
 [deps]
 
-source_file="res://Sound/OST/Trebor Orah - They Hunt.wav"
-dest_files=["res://.godot/imported/Trebor Orah - They Hunt.wav-db6513e98cbf1a11f75ae709d22a5d2b.sample"]
+source_file="res://Sound/SoundEffects/Sound/OST/Trebor Orah - They Hunt.wav"
+dest_files=["res://.godot/imported/Trebor Orah - They Hunt.wav-da5e0c30f36208ddb8fc03ee30362d41.sample"]
 
 [params]
 

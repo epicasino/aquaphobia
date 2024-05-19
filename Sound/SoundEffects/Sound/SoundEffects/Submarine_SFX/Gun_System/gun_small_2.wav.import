@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://chumwtnaade6e"
-path="res://.godot/imported/gun_small_2.wav-0a7eea6c13d9b453569c2f6e9a003a7c.sample"
+path="res://.godot/imported/gun_small_2.wav-8f3374c52ea00e50077599eb81d8d7ef.sample"
 
 [deps]
 
-source_file="res://Sound/SoundEffects/Submarine_SFX/Gun_System/gun_small_2.wav"
-dest_files=["res://.godot/imported/gun_small_2.wav-0a7eea6c13d9b453569c2f6e9a003a7c.sample"]
+source_file="res://Sound/SoundEffects/Sound/SoundEffects/Submarine_SFX/Gun_System/gun_small_2.wav"
+dest_files=["res://.godot/imported/gun_small_2.wav-8f3374c52ea00e50077599eb81d8d7ef.sample"]
 
 [params]
 

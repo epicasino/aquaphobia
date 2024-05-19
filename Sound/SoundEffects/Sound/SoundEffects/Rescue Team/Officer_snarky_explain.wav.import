@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://ckiab77dfjj6y"
-path="res://.godot/imported/Officer_snarky_explain.wav-42c7a6927450d0847b5d26965c4f768d.sample"
+path="res://.godot/imported/Officer_snarky_explain.wav-23ab89d0f180c14242f8f5bdcb5dd574.sample"
 
 [deps]
 
-source_file="res://Sound/SoundEffects/Rescue Team/Officer_snarky_explain.wav"
-dest_files=["res://.godot/imported/Officer_snarky_explain.wav-42c7a6927450d0847b5d26965c4f768d.sample"]
+source_file="res://Sound/SoundEffects/Sound/SoundEffects/Rescue Team/Officer_snarky_explain.wav"
+dest_files=["res://.godot/imported/Officer_snarky_explain.wav-23ab89d0f180c14242f8f5bdcb5dd574.sample"]
 
 [params]
 

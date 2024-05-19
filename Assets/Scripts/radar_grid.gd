@@ -136,7 +136,6 @@ func _on_small_monster_timer_timeout():
 		
 		if smallMonster.position.x == 256 && smallMonster.position.y == 448:
 			print('Small Enemy In Ship')
-			# TODO: add function to trigger small or medium monsters to spawn on submarine
 			spawn_small_monster.emit()
 			smallEnemyDelList.push_back(i)
 			remove_child(smallMonster)
@@ -159,7 +158,6 @@ func _on_medium_monster_timer_timeout():
 		
 		if mediumMonster.position.x == 256 && mediumMonster.position.y == 448:
 			print('Medium Enemy In Ship')
-			# TODO: add function to trigger small or medium monsters to spawn on submarine
 			spawn_med_monster.emit()
 			medEnemyDelList.push_back(i)
 			remove_child(mediumMonster)

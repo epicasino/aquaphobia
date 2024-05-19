@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://ljr86tar0y4k"]
+[gd_scene load_steps=13 format=3 uid="uid://ljr86tar0y4k"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/radar.gd" id="1_5et3j"]
 [ext_resource type="Texture2D" uid="uid://bu512l2viw4l2" path="res://Assets/GUIs/radar/sprites/sonar_terminal_animated-Sheet.png" id="2_iwe1c"]
 [ext_resource type="PackedScene" uid="uid://b21g746ev7f8v" path="res://Assets/GUIs/radar/radar_grid.tscn" id="2_lnlwd"]
 [ext_resource type="AudioStream" uid="uid://biqbdgyy77ghl" path="res://Sound/SoundEffects/Submarine_SFX/sonar_ping.wav" id="3_w5o4m"]
+[ext_resource type="AudioStream" uid="uid://j01qjd2i44mf" path="res://Sound/SoundEffects/Submarine_SFX/Sonar_Terminal_Button/Radar grid crabbed FX.wav" id="5_td1gh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_blm3h"]
 size = Vector2(128, 128)
@@ -79,7 +80,17 @@ volume_db = -20.0
 max_distance = 1000.0
 panning_strength = 3.0
 
+[node name="jammed_radar_noise" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_td1gh")
+max_distance = 1000.0
+panning_strength = 3.0
+
+[node name="regular_radar_timer" type="Timer" parent="."]
+wait_time = 6.0
+one_shot = true
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="spawn_med_monster" from="radar-grid" to="." method="_on_radargrid_spawn_med_monster"]
 [connection signal="spawn_small_monster" from="radar-grid" to="." method="_on_radargrid_spawn_small_monster"]
+[connection signal="timeout" from="regular_radar_timer" to="." method="_on_regular_radar_timer_timeout"]

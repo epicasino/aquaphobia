@@ -1,10 +1,122 @@
-[gd_scene load_steps=4 format=3 uid="uid://xgc4ikhc6rys"]
+[gd_scene load_steps=12 format=3 uid="uid://xgc4ikhc6rys"]
 
 [ext_resource type="Texture2D" uid="uid://dvqb0s1pt16rh" path="res://Assets/Placeholder/ts_turret.png" id="1_7lqsk"]
 [ext_resource type="Texture2D" uid="uid://doklg1q28vcfq" path="res://Assets/Placeholder/turret_barrel.png" id="2_tmlj1"]
-[ext_resource type="Script" path="res://Assets/Parts/TurretBarrel.gd" id="3_uyy5u"]
+[ext_resource type="Script" path="res://Assets/Scripts/TurretBarrel.gd" id="3_tcpwj"]
+
+[sub_resource type="GDScript" id="GDScript_gaqxb"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+#test
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bevef"]
+size = Vector2(376, 221)
+
+[sub_resource type="Animation" id="Animation_osoq5"]
+resource_name = "gun-to-left"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TurretBarrel:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -1.39626]
+}
+
+[sub_resource type="Animation" id="Animation_v50qi"]
+resource_name = "gun-to-right"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TurretBarrel:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 2.16421]
+}
+
+[sub_resource type="Animation" id="Animation_2lxlr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TurretBarrel:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_a4e6j"]
+resource_name = "right-back-to-normal"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TurretBarrel:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [2.16421, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_3fpou"]
+resource_name = "left-back-to-normal"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TurretBarrel:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-1.39626, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r63i2"]
+_data = {
+"RESET": SubResource("Animation_2lxlr"),
+"gun-to-left": SubResource("Animation_osoq5"),
+"gun-to-right": SubResource("Animation_v50qi"),
+"left-back-to-normal": SubResource("Animation_3fpou"),
+"right-back-to-normal": SubResource("Animation_a4e6j")
+}
 
 [node name="turret" type="Node2D"]
+script = SubResource("GDScript_gaqxb")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(64, 105.5)
+shape = SubResource("RectangleShape2D_bevef")
 
 [node name="TsTurret" type="Sprite2D" parent="."]
 position = Vector2(96.0001, 96)
@@ -14,4 +126,11 @@ texture = ExtResource("1_7lqsk")
 [node name="TurretBarrel" type="Sprite2D" parent="."]
 position = Vector2(96, 96)
 texture = ExtResource("2_tmlj1")
-script = ExtResource("3_uyy5u")
+script = ExtResource("3_tcpwj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_r63i2")
+}
+
+[node name="Timer" type="Timer" parent="."]

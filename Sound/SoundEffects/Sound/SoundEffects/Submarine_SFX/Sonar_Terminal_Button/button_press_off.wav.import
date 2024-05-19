@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://c670amfjka21t"
-path="res://.godot/imported/button_press_off.wav-d0be8d0d24791ee386cfab826509fe0a.sample"
+path="res://.godot/imported/button_press_off.wav-b182bbe3f6f935b5f66a6bc0fe4b4027.sample"
 
 [deps]
 
-source_file="res://Sound/SoundEffects/Submarine_SFX/Sonar_Terminal_Button/button_press_off.wav"
-dest_files=["res://.godot/imported/button_press_off.wav-d0be8d0d24791ee386cfab826509fe0a.sample"]
+source_file="res://Sound/SoundEffects/Sound/SoundEffects/Submarine_SFX/Sonar_Terminal_Button/button_press_off.wav"
+dest_files=["res://.godot/imported/button_press_off.wav-b182bbe3f6f935b5f66a6bc0fe4b4027.sample"]
 
 [params]
 

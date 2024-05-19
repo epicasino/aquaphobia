@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://b6fie03fp3yqm"
-path="res://.godot/imported/radar_crab_wahhh2.wav-40f0d4b2e035c709d6065443cebced95.sample"
+path="res://.godot/imported/radar_crab_wahhh2.wav-16952177f12d767cff542d875e1e64ad.sample"
 
 [deps]
 
-source_file="res://Sound/SoundEffects/Creature_SFX/Radar Crab/radar_crab_wahhh2.wav"
-dest_files=["res://.godot/imported/radar_crab_wahhh2.wav-40f0d4b2e035c709d6065443cebced95.sample"]
+source_file="res://Sound/SoundEffects/Sound/SoundEffects/Creature_SFX/Radar Crab/radar_crab_wahhh2.wav"
+dest_files=["res://.godot/imported/radar_crab_wahhh2.wav-16952177f12d767cff542d875e1e64ad.sample"]
 
 [params]
 

@@ -3,6 +3,9 @@ extends Area2D
 var inRadar = false
 var openedRadar = false
 
+var jamming_radar = false
+var stop_jam = false
+
 signal spawn_small_enemy
 signal spawn_medium_enemy
 
@@ -32,7 +35,22 @@ func _process(delta):
 	if Global.torpedoLaunched:
 		Global.torpedoLockedIn = false
 	
+	if Global.radarJammed:
+		if !jamming_radar:
+			jamming_radar = true
+			jam_radar()
+	
+	if !Global.pingEnabled && jamming_radar:
+		if !stop_jam:
+			stop_jam = true
+			$regular_radar_timer.start()
+	
 	radar_torpedo_controls()
+
+func jam_radar():
+	$"radar-grid/jammed_radar".visible = true
+	$"radar-grid/jammed_radar".play("jammed")
+	$jammed_radar_noise.play()
 
 # I made this while I had 1 and a half beers. Sets up the torpedo system and controls on the radar.
 func radar_torpedo_controls():
@@ -64,3 +82,11 @@ func _on_radargrid_spawn_small_monster():
 
 func _on_radargrid_spawn_med_monster():
 	spawn_medium_enemy.emit()
+
+func _on_regular_radar_timer_timeout():
+	Global.radarJammed = false
+	$"radar-grid/jammed_radar".visible = false
+	$"radar-grid/jammed_radar".stop()
+	$jammed_radar_noise.stop()
+	#jamming_radar = false
+	#stop_jam = false

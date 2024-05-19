@@ -6,6 +6,14 @@ var usingTerminal = false
 var torpedoChoice = 'no'
 var torpedoLock = false
 
+signal left_turret_selected
+signal right_turret_selected
+
+signal left_turret_stop
+signal right_turret_stop
+
+signal gun_position_locked
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$weapons_gui.visible = false
@@ -21,8 +29,20 @@ func _process(delta):
 			if !Global.gunLockedIn:
 				Global.gunLockedIn = true
 				$weapons_gui/guns_terminal_select.play("selected")
+				if !Global.gunPosition:
+					left_turret_selected.emit()
+					gun_position_locked.emit()
+					$gun_shoot_timer.start()
+				else:
+					right_turret_selected.emit()
+					gun_position_locked.emit()
+					$gun_shoot_timer.start()
 			else: 
 				Global.gunLockedIn = false
+				if !Global.gunPosition:
+					left_turret_stop.emit()
+				else:
+					right_turret_stop.emit()
 				$weapons_gui/guns_terminal_select.play("default")
 		else:
 			get_weapon_screen()
@@ -114,3 +134,11 @@ func _on_torpedo_wait_timer_timeout():
 	$torpedo_ui/torpedo_confirm.play('select')
 	torpedoLock = false
 	usingTerminal = false
+
+func _on_gun_shoot_timer_timeout():
+	Global.gunLockedIn = false
+	if !Global.gunPosition:
+		left_turret_stop.emit()
+	else:
+		right_turret_stop.emit()
+	$weapons_gui/guns_terminal_select.play("default")

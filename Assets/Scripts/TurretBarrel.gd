@@ -5,8 +5,8 @@ extends Sprite2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	shoot()
-	rotation = 100
+	#get_parent().get_node("AnimationPlayer").play('gun-to-right')
+	pass
 
 func shoot():
 	var bullet = projectile.instantiate()
@@ -15,3 +15,6 @@ func shoot():
 	bullet.spawnRot = rotation
 	bullet.zdex = z_index - 1
 	mainScene.add_child.call_deferred(bullet)
+
+func _process(delta):
+	pass

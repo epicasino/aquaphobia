@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cvndwklhugveo"
-path="res://.godot/imported/Officer_ponder_3.wav-363827f1fe77b91afe5b6434d82e6209.sample"
+path="res://.godot/imported/Officer_ponder_3.wav-16c94f756fa549ecf19d809297cada8d.sample"
 
 [deps]
 
-source_file="res://Sound/SoundEffects/Rescue Team/Officer_ponder_3.wav"
-dest_files=["res://.godot/imported/Officer_ponder_3.wav-363827f1fe77b91afe5b6434d82e6209.sample"]
+source_file="res://Sound/SoundEffects/Sound/SoundEffects/Rescue Team/Officer_ponder_3.wav"
+dest_files=["res://.godot/imported/Officer_ponder_3.wav-16c94f756fa549ecf19d809297cada8d.sample"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://biqbdgyy77ghl"
-path="res://.godot/imported/sonar_ping.wav-dbf8f49be0233cc3e00240e0eaa7bd45.sample"
+path="res://.godot/imported/sonar_ping.wav-ede77e269e55908831d9e31a07907827.sample"
 
 [deps]
 
-source_file="res://Sound/SoundEffects/Submarine_SFX/sonar_ping.wav"
-dest_files=["res://.godot/imported/sonar_ping.wav-dbf8f49be0233cc3e00240e0eaa7bd45.sample"]
+source_file="res://Sound/SoundEffects/Sound/SoundEffects/Submarine_SFX/sonar_ping.wav"
+dest_files=["res://.godot/imported/sonar_ping.wav-ede77e269e55908831d9e31a07907827.sample"]
 
 [params]
 

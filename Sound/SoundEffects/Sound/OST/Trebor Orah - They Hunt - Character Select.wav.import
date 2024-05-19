@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://jm70257dbrl5"
-path="res://.godot/imported/Trebor Orah - They Hunt - Character Select.wav-8a36dd98a5c733948b0a4ae2599db8d1.sample"
+path="res://.godot/imported/Trebor Orah - They Hunt - Character Select.wav-7a98c52f4a5f925561dfd3560804f81e.sample"
 
 [deps]
 
-source_file="res://Sound/OST/Trebor Orah - They Hunt - Character Select.wav"
-dest_files=["res://.godot/imported/Trebor Orah - They Hunt - Character Select.wav-8a36dd98a5c733948b0a4ae2599db8d1.sample"]
+source_file="res://Sound/SoundEffects/Sound/OST/Trebor Orah - They Hunt - Character Select.wav"
+dest_files=["res://.godot/imported/Trebor Orah - They Hunt - Character Select.wav-7a98c52f4a5f925561dfd3560804f81e.sample"]
 
 [params]
 

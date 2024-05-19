@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://cwlf40212mx40"]
 
-[ext_resource type="Texture2D" uid="uid://e851rvev16rj" path="res://Assets/Interactables/Sprites/drillshark_flattened-Sheet.png" id="1_tgkjg"]
+[ext_resource type="Texture2D" uid="uid://e851rvev16rj" path="res://Assets/Enemies/Sprites/drillshark_flattened-Sheet.png" id="1_tgkjg"]
 
 [sub_resource type="Animation" id="Animation_0x2w1"]
 resource_name = "Drill Shark Charging"
@@ -112,7 +112,7 @@ _data = {
 [node name="Drill Shark" type="Sprite2D"]
 texture = ExtResource("1_tgkjg")
 hframes = 36
-frame = 1
+frame = 29
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

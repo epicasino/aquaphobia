@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dl5taald65wfq"
-path="res://.godot/imported/repair_wrench1.wav-baa71329afbb1a03440977ecec457511.sample"
+path="res://.godot/imported/repair_wrench1.wav-c87410e2d51bc9771bb04e98e976ace0.sample"
 
 [deps]
 
-source_file="res://Sound/SoundEffects/Submarine_SFX/repair_wrench1.wav"
-dest_files=["res://.godot/imported/repair_wrench1.wav-baa71329afbb1a03440977ecec457511.sample"]
+source_file="res://Sound/SoundEffects/Submarine_SFX/Engine_System/repair_wrench1.wav"
+dest_files=["res://.godot/imported/repair_wrench1.wav-c87410e2d51bc9771bb04e98e976ace0.sample"]
 
 [params]
 

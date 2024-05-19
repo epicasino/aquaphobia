@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cdvej81biych"
-path="res://.godot/imported/steam_sound.wav-73dcb8ca1be0c808c14058d79fa97fb8.sample"
+path="res://.godot/imported/steam_sound.wav-b0b2d9f33ef7905d9e7d500e093dd860.sample"
 
 [deps]
 
-source_file="res://Sound/SoundEffects/Submarine_SFX/steam_sound.wav"
-dest_files=["res://.godot/imported/steam_sound.wav-73dcb8ca1be0c808c14058d79fa97fb8.sample"]
+source_file="res://Sound/SoundEffects/Sound/SoundEffects/Submarine_SFX/steam_sound.wav"
+dest_files=["res://.godot/imported/steam_sound.wav-b0b2d9f33ef7905d9e7d500e093dd860.sample"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cker8v163a32i"
-path="res://.godot/imported/engine_hum.wav-73d7d21ec638f75b77e2cb63328fea6f.sample"
+path="res://.godot/imported/engine_hum.wav-c9568000411cbf11ea42856caaef3897.sample"
 
 [deps]
 
-source_file="res://Sound/SoundEffects/Submarine_SFX/engine_hum.wav"
-dest_files=["res://.godot/imported/engine_hum.wav-73d7d21ec638f75b77e2cb63328fea6f.sample"]
+source_file="res://Sound/SoundEffects/Sound/SoundEffects/Submarine_SFX/engine_hum.wav"
+dest_files=["res://.godot/imported/engine_hum.wav-c9568000411cbf11ea42856caaef3897.sample"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjdugc584mvdc"
-path="res://.godot/imported/drillshark_flattened-Sheet.png-14f388436fe8354fd510dec9d2840ef5.ctex"
+uid="uid://rxtbv35s6akx"
+path="res://.godot/imported/Radar_grid_crabbed-Sheet.png-73e87391027942c7ed38a5aa91d5284d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GUIs/radar/sprites/drillshark_flattened-Sheet.png"
-dest_files=["res://.godot/imported/drillshark_flattened-Sheet.png-14f388436fe8354fd510dec9d2840ef5.ctex"]
+source_file="res://Assets/GUIs/radar/sprites/Radar_grid_crabbed-Sheet.png"
+dest_files=["res://.godot/imported/Radar_grid_crabbed-Sheet.png-73e87391027942c7ed38a5aa91d5284d.ctex"]
 
 [params]
 

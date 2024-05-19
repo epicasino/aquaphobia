@@ -20,11 +20,12 @@ var chosenWeapon = false
 var gunPosition = false
 var gunLockedIn = false
 
-var reactorHealth = 0
+
+var radarJammed = false
 
 var youLose = false
 
-var radarJammed = false
+var reactorHealth = 0
 
 func _process(delta):
 	#print(reactorHealth)

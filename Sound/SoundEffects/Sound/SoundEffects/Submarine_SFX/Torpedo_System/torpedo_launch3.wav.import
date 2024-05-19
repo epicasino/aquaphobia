@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://b5q6rmw88knb7"
-path="res://.godot/imported/torpedo_launch3.wav-9059eb21b29a8d84576edb2e0a91e230.sample"
+path="res://.godot/imported/torpedo_launch3.wav-f713d747274d236ec47dac851ccf370e.sample"
 
 [deps]
 
-source_file="res://Sound/SoundEffects/Submarine_SFX/Torpedo_System/torpedo_launch3.wav"
-dest_files=["res://.godot/imported/torpedo_launch3.wav-9059eb21b29a8d84576edb2e0a91e230.sample"]
+source_file="res://Sound/SoundEffects/Sound/SoundEffects/Submarine_SFX/Torpedo_System/torpedo_launch3.wav"
+dest_files=["res://.godot/imported/torpedo_launch3.wav-f713d747274d236ec47dac851ccf370e.sample"]
 
 [params]
 

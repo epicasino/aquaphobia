@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://52jgebf6b4g4"
-path="res://.godot/imported/Explosion_3.wav-d4d2e99b5c3b6c2765447d0d8125b647.sample"
+path="res://.godot/imported/Explosion_3.wav-c6a80b5ea3c519ba8f03479267725b81.sample"
 
 [deps]
 
-source_file="res://Sound/SoundEffects/Submarine_SFX/Torpedo_System/Explosion_3.wav"
-dest_files=["res://.godot/imported/Explosion_3.wav-d4d2e99b5c3b6c2765447d0d8125b647.sample"]
+source_file="res://Sound/SoundEffects/Sound/SoundEffects/Submarine_SFX/Torpedo_System/Explosion_3.wav"
+dest_files=["res://.godot/imported/Explosion_3.wav-c6a80b5ea3c519ba8f03479267725b81.sample"]
 
 [params]
 
