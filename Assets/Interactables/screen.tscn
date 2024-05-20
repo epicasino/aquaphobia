@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://bh4nwnugd4pet"]
+[gd_scene load_steps=69 format=3 uid="uid://bh4nwnugd4pet"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/screen.gd" id="1_76q2n"]
 [ext_resource type="Texture2D" uid="uid://ch18cmfdw4wci" path="res://Assets/Interactables/Sprites/terminal_and_monitor_2.png" id="1_wpqoh"]
@@ -23,6 +23,7 @@
 [ext_resource type="AudioStream" uid="uid://odhu23q6gqdm" path="res://Sound/SoundEffects/Sound/SoundEffects/Rescue Team/Officer_the_pod_was_destroyed.wav" id="20_alxep"]
 [ext_resource type="AudioStream" uid="uid://3hclnm35f8xt" path="res://Sound/SoundEffects/Sound/SoundEffects/Rescue Team/Officer_dissapointed.wav" id="21_evfym"]
 [ext_resource type="AudioStream" uid="uid://d1wrxte5imhjx" path="res://Sound/SoundEffects/Sound/SoundEffects/Rescue Team/Officer_long_explain1.wav" id="22_ehepb"]
+[ext_resource type="AudioStream" uid="uid://b2u837prm2q2h" path="res://Sound/SoundEffects/Submarine_SFX/Tv.wav" id="24_nfoy5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uv8ba"]
 size = Vector2(20, 19.7979)
@@ -488,6 +489,12 @@ panning_strength = 3.0
 [node name="question" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_tyb6e")
 volume_db = -10.0
+max_distance = 1000.0
+panning_strength = 3.0
+
+[node name="tv" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("24_nfoy5")
+volume_db = -15.0
 max_distance = 1000.0
 panning_strength = 3.0
 

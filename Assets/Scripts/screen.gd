@@ -153,7 +153,6 @@ var dialogue = [
   }
 ]
 
-
 func _ready():
 	$AnimatedSprite2D.play("idle")
 	text_box.visible = false
@@ -166,6 +165,7 @@ func _process(delta):
 		$interact_label.visible = false
 	
 	if playerInTerminal&&Input.is_action_pressed("interact")&&!startedDialogue:
+		get_parent().get_node('music').get_node('audio_transitions').play('cross_fade_sit_rep')
 		text_box.visible = true
 		startedDialogue = true
 		text_box.display_messages(dialogue[Global.game_day - 1].dialogue, dialogue[Global.game_day - 1].person)
@@ -181,6 +181,9 @@ func _on_body_exited(body):
 		playerInTerminal = false
 
 func _on_text_box_message_completed():
+	# sit rep fade out
+	get_parent().get_node('music').get_node('audio_transitions').play_backwards('cross_fade_sit_rep')
+	$tv.play()
 	#print('Message Completed')
 	text_box.visible = false
 	startedDialogue = false
