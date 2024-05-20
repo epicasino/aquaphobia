@@ -38,7 +38,7 @@ func _on_crab_animations_animation_finished(anim_name):
 		Global.radarJammed = true
 		attack_behavior()
 	if anim_name == 'move-out-sub':
-		queue_free()
+		call_deferred("free")
 
 func _on_attackingtimer_timeout():
 	if onSub && Global.radarJammed:

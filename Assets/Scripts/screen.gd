@@ -4,6 +4,8 @@ extends Area2D
 var playerInTerminal = false
 var startedDialogue = false
 
+var alreadyTalked = false
+
 var dialogue = [
   {
 	"day": 1,
@@ -165,10 +167,12 @@ func _process(delta):
 		$interact_label.visible = false
 	
 	if playerInTerminal&&Input.is_action_pressed("interact")&&!startedDialogue:
-		get_parent().get_node('music').get_node('audio_transitions').play('cross_fade_sit_rep')
-		text_box.visible = true
-		startedDialogue = true
-		text_box.display_messages(dialogue[Global.game_day - 1].dialogue, dialogue[Global.game_day - 1].person)
+		if !alreadyTalked:
+			alreadyTalked = true
+			get_parent().get_node('music').get_node('audio_transitions').play('cross_fade_sit_rep')
+			text_box.visible = true
+			startedDialogue = true
+			text_box.display_messages(dialogue[Global.game_day - 1].dialogue, dialogue[Global.game_day - 1].person)
 
 #"[center]" + "[wave]Hi[/wave] I was generated for the dialogue system test for the godot game engine" + "[/center]"
 
