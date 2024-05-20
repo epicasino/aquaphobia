@@ -955,7 +955,7 @@ centered = false
 [node name="timers" type="Node" parent="."]
 
 [node name="garbage_timer" type="Timer" parent="timers"]
-wait_time = 2.0
+wait_time = 0.5
 autostart = true
 
 [node name="medEnemyFleeTimer" type="Timer" parent="timers"]

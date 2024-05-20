@@ -50,7 +50,7 @@ func _process(delta):
 	else:
 		$reactor_health.visible = true
 		
-	if Global.reactorHealth == 100:
+	if Global.reactorHealth >= 100:
 		Global.youLose = 'reactor explode'
 
 func _on_body_entered(body):
