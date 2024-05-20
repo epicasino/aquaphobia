@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://dda7pt55t7ecr"]
+[gd_scene load_steps=20 format=3 uid="uid://dda7pt55t7ecr"]
 
 [ext_resource type="Texture2D" uid="uid://bfo4fqtrq354e" path="res://Assets/Interactables/Sprites/weapons_terminal_animated-Sheet.png" id="1_f81b3"]
 [ext_resource type="Script" path="res://Assets/Scripts/weapons_system.gd" id="1_yx1dy"]
 [ext_resource type="PackedScene" uid="uid://dxoa6f0b23yhe" path="res://Assets/GUIs/weapons_system/weapons_gui.tscn" id="2_50dfg"]
+[ext_resource type="FontFile" uid="uid://xr20vdyorlyn" path="res://Assets/Fonts/PixelFont.ttf" id="2_v1qy1"]
 [ext_resource type="PackedScene" uid="uid://bgyqayh16188y" path="res://Assets/GUIs/weapons_system/torpedo_ui.tscn" id="4_17lme"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_otakd"]
@@ -102,6 +103,16 @@ animations = [{
 
 [node name="weapons_system" type="Area2D"]
 script = ExtResource("1_yx1dy")
+
+[node name="interact_label" type="Label" parent="."]
+offset_left = 19.0
+offset_top = -32.0
+offset_right = 111.0
+offset_bottom = -3.0
+theme_override_fonts/font = ExtResource("2_v1qy1")
+text = "Weapons Systems
+Z to Interact"
+horizontal_alignment = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(64, 64)

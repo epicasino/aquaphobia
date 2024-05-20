@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dcqsfu1abijjo" path="res://Assets/Interactables/Sprites/Platform.png" id="1_8umpv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sykpk"]
-size = Vector2(64, 5)
+size = Vector2(64, 8)
 
 [node name="platform" type="StaticBody2D"]
 position = Vector2(32, 24)
@@ -13,6 +13,6 @@ position = Vector2(0, 8)
 texture = ExtResource("1_8umpv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -21.5)
+position = Vector2(0, -20)
 shape = SubResource("RectangleShape2D_sykpk")
 one_way_collision = true

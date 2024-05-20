@@ -12,6 +12,29 @@ var delMedEnemies = []
 var medEnemyScene = preload('res://Assets/Enemies/medium_monster.tscn')
 var smallEnemyScene = preload('res://Assets/Enemies/small_monster.tscn')
 
+var dayOneTimerGrace = true
+
+func _ready():
+	if Global.game_day != 1:
+		$timers/day_timer.start()
+		
+func _process(delta):
+	if Global.game_day == 1 && !Global.day_1_grace_period:
+		if dayOneTimerGrace:
+			$timers/day_timer.start()
+		dayOneTimerGrace = false
+	if Global.youLose == 'big one':
+		get_tree().change_scene_to_file('res://Assets/Levels/Lose/big_one_lose.tscn')
+
+func blowUpSmallEnemies():
+	if smallDeadEnemyIndex < smallEnemiesInKillzone.size():
+		$timers/smallEnemyFleeTimer.start()
+
+func fleeMedEnemies():
+	if medFleeEnemyIndex < medEnemiesInKillzone.size():
+		$timers/medEnemyFleeTimer.start()
+
+
 func _on_radar_spawn_small_enemy():
 	var smallEnemy = smallEnemyScene.instantiate()
 	add_child(smallEnemy)
@@ -32,13 +55,6 @@ func _on_weapons_system_gun_position_locked():
 	elif Global.gunPosition && smallEnemiesInKillzone.size() != 0:
 		blowUpSmallEnemies()
 
-func blowUpSmallEnemies():
-	if smallDeadEnemyIndex < smallEnemiesInKillzone.size():
-		$timers/smallEnemyFleeTimer.start()
-
-func fleeMedEnemies():
-	if medFleeEnemyIndex < medEnemiesInKillzone.size():
-		$timers/medEnemyFleeTimer.start()
 
 func _on_med_enemy_flee_timer_timeout():
 	medEnemiesInKillzone[medFleeEnemyIndex].get_parent().reset_behaviors()
@@ -52,6 +68,7 @@ func _on_small_enemy_flee_timer_timeout():
 	smallEnemiesInKillzone[smallDeadEnemyIndex].get_parent().reset_behavior()
 	smallEnemiesInKillzone[smallDeadEnemyIndex].get_parent().get_node('Sounds').get_node('deathrattle').play()
 	smallEnemiesInKillzone[smallDeadEnemyIndex].get_node('AnimatedSprite2D').play('explode')
+	Global.radarJammed = false
 	delSmallEnemies.push_back(smallDeadEnemyIndex)
 	smallDeadEnemyIndex += 1
 	blowUpSmallEnemies()
@@ -70,3 +87,6 @@ func _on_garbage_timer_timeout():
 			medEnemiesInKillzone.remove_at(delMedEnemies[i])
 		delMedEnemies = []
 		medFleeEnemyIndex -= 1
+
+func _on_day_timer_timeout():
+	get_tree().change_scene_to_file('res://Assets/Levels/day_transition_scene.tscn')

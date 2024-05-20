@@ -1,10 +1,4 @@
-extends Area2D
-
-@onready var text_box = $text_box
-var playerInTerminal = false
-var startedDialogue = false
-
-var dialogue = [
+[
   {
 	"day": 1,
 	"dialogue": [
@@ -100,7 +94,7 @@ var dialogue = [
 	  },
 	  {
 		"line": "[center][wave]Bad news.[/wave][/center]",
-		"emotion": "disappointed"
+		"emotion": "dissapointed"
 	  },
 	  {
 		"line": "[center]The engineers made the pod calculations for the [wave]imperial system.[/wave][/center]",
@@ -152,82 +146,3 @@ var dialogue = [
 	"person": "Rescue Team"
   }
 ]
-
-
-func _ready():
-	$AnimatedSprite2D.play("idle")
-	text_box.visible = false
-	$interact_label.visible = false
-
-func _process(delta):
-	if playerInTerminal:
-		$interact_label.visible = true
-	else:
-		$interact_label.visible = false
-	
-	if playerInTerminal&&Input.is_action_pressed("interact")&&!startedDialogue:
-		text_box.visible = true
-		startedDialogue = true
-		text_box.display_messages(dialogue[Global.game_day - 1].dialogue, dialogue[Global.game_day - 1].person)
-
-#"[center]" + "[wave]Hi[/wave] I was generated for the dialogue system test for the godot game engine" + "[/center]"
-
-func _on_body_entered(body):
-	if body.name == 'Player':
-		playerInTerminal = true
-
-func _on_body_exited(body):
-	if body.name == 'Player':
-		playerInTerminal = false
-
-func _on_text_box_message_completed():
-	#print('Message Completed')
-	text_box.visible = false
-	startedDialogue = false
-	$AnimatedSprite2D.play("turn_off")
-	
-func _on_text_box_character_speech(character, emotion):
-	#print(character)
-	if character == 'Rescue Team':
-		match emotion:
-			'hello1':
-				$hello1.play()
-			'hello2':
-				$hello2.play()
-			'short1':
-				$short1.play()
-			'short2':
-				$short2.play()
-			'snarky1':
-				$snarky1.play()
-			'snarky2':
-				$snarky2.play()
-			'explain1':
-				$explain1.play()
-			'explain2':
-				$explain2.play()
-			'explain3':
-				$explain3.play()
-			'explain4':
-				$explain4.play()
-			'ponder1':
-				$'ponder1'.play()
-			'ponder2':
-				$'ponder2'.play()
-			'ponder3':
-				$'ponder3'.play()
-			'positive1':
-				$'positive1'.play()
-			'pod_destroyed':
-				$'pod_destroyed'.play()
-			'disappointed':
-				$disappointed.play()
-			'long_explain':
-				$long_explain.play()
-			'question':
-				$question.play()
-			
-
-#func _on_animated_sprite_2d_animation_finished(animation):
-	#if animation == 'turn_off':
-		#$AnimatedSprite2D.play("off")

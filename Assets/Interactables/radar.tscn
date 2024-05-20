@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://ljr86tar0y4k"]
+[gd_scene load_steps=14 format=3 uid="uid://ljr86tar0y4k"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/radar.gd" id="1_5et3j"]
+[ext_resource type="FontFile" uid="uid://xr20vdyorlyn" path="res://Assets/Fonts/PixelFont.ttf" id="2_emno3"]
 [ext_resource type="Texture2D" uid="uid://bu512l2viw4l2" path="res://Assets/GUIs/radar/sprites/sonar_terminal_animated-Sheet.png" id="2_iwe1c"]
 [ext_resource type="PackedScene" uid="uid://b21g746ev7f8v" path="res://Assets/GUIs/radar/radar_grid.tscn" id="2_lnlwd"]
 [ext_resource type="AudioStream" uid="uid://biqbdgyy77ghl" path="res://Sound/SoundEffects/Submarine_SFX/sonar_ping.wav" id="3_w5o4m"]
@@ -54,6 +55,16 @@ animations = [{
 
 [node name="radar" type="Area2D"]
 script = ExtResource("1_5et3j")
+
+[node name="interact_label" type="Label" parent="."]
+offset_left = 28.0
+offset_top = -15.0
+offset_right = 99.0
+offset_bottom = 14.0
+theme_override_fonts/font = ExtResource("2_emno3")
+text = "Radar
+Z to Interact"
+horizontal_alignment = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(64, 64)

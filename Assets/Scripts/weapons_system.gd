@@ -22,6 +22,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if inWeaponsTerminal:
+		$interact_label.visible = true
+	else: 
+		$interact_label.visible = false
+	
 	if inWeaponsTerminal && Input.is_action_just_pressed("interact"):
 		if usingTerminal && $torpedo_ui.visible:
 			start_torpedo_launch()
@@ -134,6 +139,8 @@ func _on_torpedo_wait_timer_timeout():
 	$torpedo_ui/torpedo_confirm.play('select')
 	torpedoLock = false
 	usingTerminal = false
+	if torpedoChoice == 'no':
+		$torpedo_ui/torpedo_choice_no.play()
 
 func _on_gun_shoot_timer_timeout():
 	Global.gunLockedIn = false

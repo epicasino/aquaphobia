@@ -11,21 +11,19 @@ var messages_index = 0
 var messages_array
 var character_talking
 
-func display_messages(messages: Array, character: String):
+func display_messages(messages, character: String):
 	messages_index = 0
 	messages_array = messages
 	character_talking = character
 	if character_talking == 'Rescue Team':
-		character_speech.emit('Rescue Team', 'Hello')
-		message_sequence(messages_array[messages_index])
+		message_sequence(messages_array[messages_index].line, messages_array[messages_index].emotion)
 	
-func message_sequence(message: String):
+func message_sequence(message: String, emotion: String):
 	if messages_index < messages_array.size():
 		if character_talking == 'Rescue Team':
-			if messages_index != 0:
-				character_speech.emit('Rescue Team', 'Explain')
+				character_speech.emit('Rescue Team', emotion)
 				update_message(message)
-			else: update_message(message)
+		#else: update_message(message)
 
 func update_message(message: String):
 	richText.bbcode_text = _extract_tags(message)
@@ -50,6 +48,6 @@ func _on_wait_timer_timeout():
 	#wait_timer.wait_time = 1
 	messages_index += 1
 	if messages_index < messages_array.size():
-		message_sequence(messages_array[messages_index])
+		message_sequence(messages_array[messages_index].line, messages_array[messages_index].emotion)
 	else:
 		message_completed.emit()

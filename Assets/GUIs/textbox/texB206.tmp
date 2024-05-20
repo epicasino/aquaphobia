@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://3hk87ylku6ce"]
+
+[ext_resource type="Script" path="res://Assets/GUIs/textbox/text_box.gd" id="1_ef5b1"]
+[ext_resource type="Texture2D" uid="uid://csim3ksbycfek" path="res://Assets/Interactables/Sprites/text_box.png" id="1_u8156"]
+
+[node name="text_box" type="MarginContainer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -384.0
+offset_right = 384.0
+offset_bottom = 104.0
+grow_horizontal = 2
+size_flags_vertical = 8
+script = ExtResource("1_ef5b1")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_u8156")
+region_rect = Rect2(0, 0, 48, 48)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
+bbcode_enabled = true
+scroll_active = false
+
+[node name="wait_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="type_timer" type="Timer" parent="."]
+wait_time = 0.05
+
+[connection signal="finished" from="MarginContainer/RichTextLabel" to="." method="_on_rich_text_label_finished"]
+[connection signal="timeout" from="wait_timer" to="." method="_on_wait_timer_timeout"]
+[connection signal="timeout" from="type_timer" to="." method="_on_type_timer_timeout"]

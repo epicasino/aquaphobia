@@ -11,6 +11,11 @@ signal spawn_medium_enemy
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if inRadar:
+		$interact_label.visible = true
+	else: 
+		$interact_label.visible = false
+	
 	if inRadar && !openedRadar && Input.is_action_just_pressed("interact"):
 		$"radar-grid".visible = true
 		openedRadar = true
@@ -19,7 +24,7 @@ func _process(delta):
 			Global.torpedoLockedIn = false
 		else:
 			Global.torpedoLockedIn = true
-	if inRadar && Input.is_action_just_pressed("secondary_interact"):
+	if inRadar && openedRadar && Input.is_action_just_pressed("secondary_interact"):
 		if !Global.pingEnabled:
 			$'radar-grid'.get_node('SubViewport').get_node('radar_button').play('on')
 			Global.pingEnabled = true
@@ -44,6 +49,9 @@ func _process(delta):
 		if !stop_jam:
 			stop_jam = true
 			$regular_radar_timer.start()
+	else: 
+		stop_jam = false
+		$regular_radar_timer.stop()
 	
 	radar_torpedo_controls()
 
@@ -76,7 +84,6 @@ func _on_body_exited(body):
 	if body.name == 'Player':
 		inRadar = false
 
-
 func _on_radargrid_spawn_small_monster():
 	spawn_small_enemy.emit()
 
@@ -84,9 +91,10 @@ func _on_radargrid_spawn_med_monster():
 	spawn_medium_enemy.emit()
 
 func _on_regular_radar_timer_timeout():
-	Global.radarJammed = false
-	$"radar-grid/jammed_radar".visible = false
-	$"radar-grid/jammed_radar".stop()
-	$jammed_radar_noise.stop()
-	#jamming_radar = false
-	#stop_jam = false
+	if !Global.pingEnabled:
+		Global.radarJammed = false
+		jamming_radar = false
+		stop_jam = false
+		$"radar-grid/jammed_radar".visible = false
+		$"radar-grid/jammed_radar".stop()
+		$jammed_radar_noise.stop()

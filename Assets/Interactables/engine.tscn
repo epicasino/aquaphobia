@@ -164,6 +164,25 @@ theme_override_fonts/font = ExtResource("4_pga37")
 theme_override_font_sizes/font_size = 24
 script = ExtResource("5_4xccs")
 
+[node name="fixing_status" type="Label" parent="."]
+visible = false
+offset_left = 128.0
+offset_top = 24.0
+offset_right = 199.0
+offset_bottom = 47.0
+theme_override_fonts/font = ExtResource("4_pga37")
+text = "Repairing..."
+
+[node name="interact_label" type="Label" parent="."]
+offset_left = 30.0
+offset_top = 12.0
+offset_right = 101.0
+offset_bottom = 41.0
+theme_override_fonts/font = ExtResource("4_pga37")
+text = "Engine
+Z to interact"
+horizontal_alignment = 1
+
 [node name="repair_sounds" type="Node" parent="."]
 
 [node name="hammer1" type="AudioStreamPlayer2D" parent="repair_sounds"]

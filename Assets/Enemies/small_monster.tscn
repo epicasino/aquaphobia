@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://d0gyjpqpqbdq4"]
+[gd_scene load_steps=58 format=3 uid="uid://d0gyjpqpqbdq4"]
 
 [ext_resource type="Texture2D" uid="uid://cwai8r8em747" path="res://Assets/Enemies/Sprites/radar_crab_flat.png" id="1_ae10e"]
 [ext_resource type="Script" path="res://Assets/Scripts/small_monster.gd" id="1_nelod"]
@@ -11,7 +11,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_ilmon"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 544, 0, 185.262, -0.707107, -185.262, 0.707107, 256, -128, 105.5, -0.5, -105.5, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -128, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 424, -56, 185.262, -0.707107, -185.262, 0.707107, 256, -128, 105.5, -0.5, -105.5, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -128, 0)
 }
 point_count = 5
 
@@ -343,6 +343,10 @@ tracks/0/keys = {
 "values": [0.0]
 }
 
+[sub_resource type="Animation" id="Animation_eck11"]
+resource_name = "flee"
+length = 2.0
+
 [sub_resource type="Animation" id="Animation_w8x8u"]
 resource_name = "move-to-sub"
 length = 2.0
@@ -359,14 +363,27 @@ tracks/0/keys = {
 "values": [0.0, 1.0]
 }
 
-[sub_resource type="Animation" id="Animation_eck11"]
-resource_name = "flee"
+[sub_resource type="Animation" id="Animation_4vpc4"]
+resource_name = "move-out-sub"
 length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(0.65, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n8h4u"]
 _data = {
 "RESET": SubResource("Animation_p1vk5"),
 "flee": SubResource("Animation_eck11"),
+"move-out-sub": SubResource("Animation_4vpc4"),
 "move-to-sub": SubResource("Animation_w8x8u")
 }
 
@@ -376,8 +393,8 @@ curve = SubResource("Curve2D_ilmon")
 script = ExtResource("1_nelod")
 
 [node name="crab" type="AnimatableBody2D" parent="."]
-position = Vector2(544, 0)
-rotation = -2.72337
+position = Vector2(424, -56)
+rotation = -2.7367
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="crab"]
 position = Vector2(0, 3.8147e-06)
@@ -390,8 +407,8 @@ animation = &"explode"
 shape = SubResource("RectangleShape2D_ikyki")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
-position = Vector2(544, 0)
-rotation = -2.72337
+position = Vector2(424, -56)
+rotation = -2.7367
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D"]
 remote_path = NodePath("../../crab")

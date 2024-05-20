@@ -22,6 +22,15 @@ func get_random_int_between(min_val, max_val):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if inEngine:
+		$interact_label.visible = true
+	else:
+		$interact_label.visible = false
+	if engineRepair:
+		$fixing_status.visible = true
+	else:
+		$fixing_status.visible = false
+	
 	if inEngine && Input.is_action_just_pressed('interact'):
 		btnHeldDown = true
 	if inEngine && Input.is_action_just_released("interact"):
@@ -38,6 +47,9 @@ func _process(delta):
 		$reactor_health.visible = false
 	else:
 		$reactor_health.visible = true
+		
+	if Global.reactorHealth == 100:
+		Global.youLose = 'reactor explode'
 
 func _on_body_entered(body):
 	if body.name == 'Player':
@@ -50,5 +62,8 @@ func _on_body_exited(body):
 func _on_repair_timer_timeout():
 	var randomInt = get_random_int_between(0,6)
 	# TODO: negative numbers in health
-	Global.reactorHealth -= 4
+	if Global.reactorHealth - 4 < 0:
+		Global.reactorHealth = 0
+	else:
+		Global.reactorHealth -= 4
 	repair_sounds[randomInt].play()

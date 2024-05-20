@@ -1,7 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bgyqayh16188y"]
+[gd_scene load_steps=11 format=3 uid="uid://bgyqayh16188y"]
 
 [ext_resource type="Texture2D" uid="uid://gw3lkcp4q5hr" path="res://Assets/GUIs/weapons_system/Sprites/tpt_ui_ready.png" id="1_sfde1"]
 [ext_resource type="Texture2D" uid="uid://eg4a74gvjewr" path="res://Assets/GUIs/weapons_system/Sprites/torpedo_terminal_ui_selection.png" id="2_bipir"]
+[ext_resource type="AudioStream" uid="uid://bfolpeiqi8ewj" path="res://Sound/SoundEffects/Submarine_SFX/Torpedo_System/not_locked.wav" id="3_5uoue"]
+[ext_resource type="Texture2D" uid="uid://ceigtyh21xyba" path="res://Assets/GUIs/weapons_system/Sprites/Numbers/tpt_text_6.png" id="4_ec3s8"]
+[ext_resource type="Texture2D" uid="uid://g4te6bkm68wm" path="res://Assets/GUIs/weapons_system/Sprites/Numbers/tpt_text_9.png" id="5_5c8gm"]
+[ext_resource type="Texture2D" uid="uid://u2korlqosxob" path="res://Assets/Interactables/Sprites/torpedo_terminal_sticky_note.png" id="6_24eoa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ivfdq"]
 atlas = ExtResource("2_bipir")
@@ -47,3 +51,20 @@ centered = false
 position = Vector2(432, 448)
 sprite_frames = SubResource("SpriteFrames_k7skc")
 animation = &"select"
+
+[node name="torpedo_choice_no" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_5uoue")
+volume_db = -5.0
+
+[node name="TptText6" type="Sprite2D" parent="."]
+position = Vector2(437, 128)
+texture = ExtResource("4_ec3s8")
+
+[node name="TptText9" type="Sprite2D" parent="."]
+position = Vector2(477, 128)
+texture = ExtResource("5_5c8gm")
+
+[node name="TorpedoTerminalStickyNote" type="Sprite2D" parent="."]
+position = Vector2(503, 72)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_24eoa")

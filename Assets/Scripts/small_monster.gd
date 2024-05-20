@@ -16,18 +16,17 @@ func _ready():
 func get_random_int_between(min_val, max_val):
 	return rng.randi_range(min_val, max_val)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func attack_behavior():
 	var randomFiddle = get_random_int_between(0,2)
 	var fiddles = [$Sounds/fiddle, $Sounds/fiddle2, $Sounds/fiddle3]
 	fiddles[randomFiddle].play()
+	Global.radarJammed = true
 	$"attacking-timer".start()
 	Global.reactorHealth += 2
 	
 func reset_behavior():
+	onSub = false
+	Global.radarJammed = false
 	$'attacking-timer'.stop()
 	$Sounds/fiddle.stop()
 	$Sounds/fiddle2.stop()
@@ -38,6 +37,8 @@ func _on_crab_animations_animation_finished(anim_name):
 		onSub = true
 		Global.radarJammed = true
 		attack_behavior()
+	if anim_name == 'move-out-sub':
+		queue_free()
 
 func _on_attackingtimer_timeout():
 	if onSub && Global.radarJammed:
@@ -48,5 +49,4 @@ func _on_attackingtimer_timeout():
 func flee():
 	reset_behavior()
 	$crab/AnimatedSprite2D.play("transition")
-	$crab_animations.play_backwards("move-to-sub")
-	onSub = false
+	$crab_animations.play("move-out-sub")

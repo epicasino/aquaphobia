@@ -85,4 +85,5 @@ layout_mode = 2
 text = "Quit"
 
 [connection signal="pressed" from="title_screen_buttons/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="title_screen_buttons/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="title_screen_buttons/Quit" to="." method="_on_quit_pressed"]
