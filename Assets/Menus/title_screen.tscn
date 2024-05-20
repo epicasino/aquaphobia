@@ -65,9 +65,9 @@ libraries = {
 
 [node name="title_screen_buttons" type="BoxContainer" parent="."]
 offset_left = 392.0
-offset_top = 320.0
+offset_top = 351.0
 offset_right = 760.0
-offset_bottom = 524.0
+offset_bottom = 555.0
 theme = ExtResource("3_w2rv4")
 theme_override_constants/separation = 30
 vertical = true
@@ -76,14 +76,9 @@ vertical = true
 layout_mode = 2
 text = "Start"
 
-[node name="Options" type="Button" parent="title_screen_buttons"]
-layout_mode = 2
-text = "Options"
-
 [node name="Quit" type="Button" parent="title_screen_buttons"]
 layout_mode = 2
 text = "Quit"
 
 [connection signal="pressed" from="title_screen_buttons/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="title_screen_buttons/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="title_screen_buttons/Quit" to="." method="_on_quit_pressed"]

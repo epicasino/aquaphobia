@@ -22,10 +22,3 @@ func _on_quit_pressed():
 func _process(delta):
 	if Global.game_start:
 		visible = false
-
-func _on_options_pressed():
-	pass
-	#Global.first_playthrough = false
-	#Global.game_day = 2
-	#Global.game_start = true
-	#get_tree().get_root().get_node('submarine_level').get_tree().reload_current_scene()
