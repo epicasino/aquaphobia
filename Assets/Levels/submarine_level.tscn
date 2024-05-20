@@ -1,10 +1,13 @@
-[gd_scene load_steps=57 format=3 uid="uid://bssihkya8horf"]
+[gd_scene load_steps=58 format=3 uid="uid://bssihkya8horf"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/submarine_level.gd" id="1_6yemq"]
 [ext_resource type="PackedScene" uid="uid://cf000sk5aqqc8" path="res://Assets/Menus/title_screen.tscn" id="1_osq1f"]
+[ext_resource type="Texture2D" uid="uid://b0tm747kciqu7" path="res://Assets/Tilesets/bg.png" id="2_v7enp"]
 [ext_resource type="Texture2D" uid="uid://mnfwhif3a730" path="res://Assets/Tilesets/ts_submarine.png" id="2_xwq63"]
+[ext_resource type="Texture2D" uid="uid://doohyjfmvn0kd" path="res://Assets/Tilesets/Bg_coral.png" id="3_m5kfi"]
 [ext_resource type="PackedScene" uid="uid://dyfayx4uj5114" path="res://Assets/Characters/Player.tscn" id="3_otlpw"]
 [ext_resource type="Script" path="res://Assets/Scripts/submarine_level_tileset.gd" id="4_nspun"]
+[ext_resource type="Texture2D" uid="uid://dofgqn7ujip5d" path="res://Assets/Tilesets/Bg_BG.png" id="4_okqne"]
 [ext_resource type="Texture2D" uid="uid://b58raxdlns34m" path="res://Assets/Tilesets/submarine_interior.png" id="4_t2nyv"]
 [ext_resource type="Script" path="res://Assets/Scripts/CustomCamera2D.gd" id="5_761ti"]
 [ext_resource type="AudioStream" uid="uid://cxv40b4djqllp" path="res://Sound/SoundEffects/Sound/OST/Trebor Orah - They Hunt.wav" id="7_acjor"]
@@ -714,6 +717,35 @@ _data = {
 [node name="submarine_level" type="Node2D"]
 script = ExtResource("1_6yemq")
 
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.9, 0.9)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(1267, -78)
+scale = Vector2(1.74444, 1.74444)
+texture = ExtResource("2_v7enp")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground/ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxBackground/ParallaxLayer"]
+position = Vector2(1172, -140.5)
+scale = Vector2(1.5625, 1.74722)
+texture = ExtResource("4_okqne")
+
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground/ParallaxBackground2"]
+motion_scale = Vector2(1.1, 1.1)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxBackground2/ParallaxLayer"]
+position = Vector2(1172, -140.5)
+scale = Vector2(1.5625, 1.74722)
+texture = ExtResource("3_m5kfi")
+
 [node name="title_screen" parent="." instance=ExtResource("1_osq1f")]
 position = Vector2(444, -1028)
 scale = Vector2(1.25, 1.25)
@@ -827,8 +859,6 @@ max_distance = 1000.0
 position = Vector2(736, 208)
 scale = Vector2(1.8, 1.8)
 speed = 250.0
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
 
 [node name="ecco the dolphin" type="Sprite2D" parent="."]
 position = Vector2(256, 784)
