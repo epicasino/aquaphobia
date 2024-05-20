@@ -31,7 +31,9 @@ func _ready():
 	$SubViewport/radar_ping/Ping.visible = false
 	$SubViewport/radar_button.play("off")
 	$SubViewport/spawn_timer.set_wait_time(Global.enemySpawnRate)
-	$SubViewport/lg_monster_timer.set_wait_time(Global.largeEnemySpawnRate)
+	if Global.game_day > 2:
+		$SubViewport/lg_monster_timer.set_wait_time(Global.largeEnemySpawnRate)
+		$SubViewport/lg_monster_timer.start()
 	
 	# sub position
 	#sub.position.x = 256
@@ -216,7 +218,7 @@ func enemy_on_torpedo_coords_check():
 			$big_explosion_delay_timer.start()
 			print('hit')
 	if Global.torpedoCoordinates == Vector2(256, 448):
-		Global.youLose = 'dumb'
+		Global.youLose = 'reactor explode'
 
 	# sub position
 	#sub.position.x = 256

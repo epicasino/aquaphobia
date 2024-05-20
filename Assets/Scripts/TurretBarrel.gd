@@ -3,6 +3,7 @@ extends Sprite2D
 @onready var mainScene = get_tree().get_root().get_node('submarine_level')
 @onready var projectile = load('res://Assets/Parts/bullet.tscn')
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#get_parent().get_node("AnimationPlayer").play('gun-to-right')

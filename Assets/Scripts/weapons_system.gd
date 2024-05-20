@@ -19,10 +19,11 @@ func _ready():
 	$weapons_gui.visible = false
 	$torpedo_ui.visible = false
 	$torpedo_ui/torpedo_confirm.play('select')
+	$weapons_system_sprite.play("default")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	if inWeaponsTerminal:
+func _process(delta): 
+	if inWeaponsTerminal: 
 		$interact_label.visible = true
 	else: 
 		$interact_label.visible = false
@@ -42,13 +43,6 @@ func _process(delta):
 					right_turret_selected.emit()
 					gun_position_locked.emit()
 					$gun_shoot_timer.start()
-			else: 
-				Global.gunLockedIn = false
-				if !Global.gunPosition:
-					left_turret_stop.emit()
-				else:
-					right_turret_stop.emit()
-				$weapons_gui/guns_terminal_select.play("default")
 		else:
 			get_weapon_screen()
 	if inWeaponsTerminal && Input.is_action_just_pressed("secondary_interact"):

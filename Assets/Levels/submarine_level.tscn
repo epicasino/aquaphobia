@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://bssihkya8horf"]
+[gd_scene load_steps=63 format=3 uid="uid://bssihkya8horf"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/submarine_level.gd" id="1_6yemq"]
 [ext_resource type="PackedScene" uid="uid://cf000sk5aqqc8" path="res://Assets/Menus/title_screen.tscn" id="1_osq1f"]
@@ -18,11 +18,15 @@
 [ext_resource type="PackedScene" uid="uid://ljr86tar0y4k" path="res://Assets/Interactables/radar.tscn" id="12_h1qxj"]
 [ext_resource type="PackedScene" uid="uid://d4mwg3hn372j7" path="res://Assets/Interactables/ladder.tscn" id="12_xwcfg"]
 [ext_resource type="PackedScene" uid="uid://dda7pt55t7ecr" path="res://Assets/Interactables/weapons_system.tscn" id="13_d5w45"]
+[ext_resource type="AudioStream" uid="uid://jy71sat3wtct" path="res://Sound/OST/Trebor Orah - Ambience 2.wav" id="13_gm0v5"]
+[ext_resource type="AudioStream" uid="uid://bfqm8rf8rmdds" path="res://Sound/OST/Trebor Orah - Sit Rep.wav" id="13_pq80n"]
 [ext_resource type="PackedScene" uid="uid://c4s4kwgk33f0g" path="res://Assets/Interactables/torpedo.tscn" id="14_mix15"]
 [ext_resource type="PackedScene" uid="uid://cjca3yt0wsh3s" path="res://Assets/Interactables/platform.tscn" id="15_eleax"]
 [ext_resource type="PackedScene" uid="uid://xgc4ikhc6rys" path="res://Assets/Parts/turret.tscn" id="18_r4lv7"]
 [ext_resource type="Script" path="res://Assets/Scripts/left_turret.gd" id="19_28xmr"]
+[ext_resource type="AudioStream" uid="uid://dvgekygc5ceqs" path="res://Sound/SoundEffects/Submarine_SFX/Gun_System/gun_small.wav" id="19_lukkw"]
 [ext_resource type="Script" path="res://Assets/Scripts/right_turret.gd" id="20_mp2p5"]
+[ext_resource type="AudioStream" uid="uid://chumwtnaade6e" path="res://Sound/SoundEffects/Submarine_SFX/Gun_System/gun_small_2.wav" id="20_rq4o0"]
 [ext_resource type="Texture2D" uid="uid://dml3vhkgi5uxn" path="res://Assets/Placeholder/ecco-the-dolphin.png" id="20_yqoap"]
 [ext_resource type="Script" path="res://Assets/Scripts/reactor_lose.gd" id="22_8wwui"]
 [ext_resource type="AudioStream" uid="uid://cwt2nqx7kgxpx" path="res://Sound/SoundEffects/Submarine_SFX/reactor_meltdown.wav" id="22_qbskf"]
@@ -388,6 +392,30 @@ tracks/1/keys = {
 "update": 0,
 "values": [-80.0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sit_rep:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-80.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ambience_music2:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-80.0]
+}
 
 [sub_resource type="Animation" id="Animation_2suay"]
 resource_name = "crossfade"
@@ -416,6 +444,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [-80.0, -30.0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ambience_music2:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-80.0, -30.0]
+}
 
 [sub_resource type="Animation" id="Animation_dd17h"]
 resource_name = "fade_off"
@@ -432,9 +472,50 @@ tracks/0/keys = {
 "values": [-30.0, -80.0]
 }
 
+[sub_resource type="Animation" id="Animation_judfm"]
+resource_name = "cross_fade_sit_rep"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sit_rep:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-80.0, -20.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ambience_music:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-30.0, -80.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ambience_music2:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-30.0, -80.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kosbj"]
 _data = {
 "RESET": SubResource("Animation_iyt8w"),
+"cross_fade_sit_rep": SubResource("Animation_judfm"),
 "crossfade": SubResource("Animation_2suay"),
 "fade_off": SubResource("Animation_dd17h")
 }
@@ -789,13 +870,21 @@ volume_db = -20.0
 stream = ExtResource("8_fy0ru")
 volume_db = -80.0
 
+[node name="ambience_music2" type="AudioStreamPlayer" parent="music"]
+stream = ExtResource("13_gm0v5")
+volume_db = -80.0
+
+[node name="sit_rep" type="AudioStreamPlayer" parent="music"]
+stream = ExtResource("13_pq80n")
+volume_db = -80.0
+
 [node name="audio_transitions" type="AnimationPlayer" parent="music"]
 libraries = {
 "": SubResource("AnimationLibrary_kosbj")
 }
 
 [node name="screen" parent="." instance=ExtResource("10_1s81d")]
-position = Vector2(958, 241)
+position = Vector2(1288, 241)
 
 [node name="engine" parent="." instance=ExtResource("11_7dqho")]
 position = Vector2(704, 385)
@@ -813,7 +902,7 @@ position = Vector2(32.653, 9.329)
 scale = Vector2(0.583, 0.583)
 
 [node name="weapons_system" parent="." instance=ExtResource("13_d5w45")]
-position = Vector2(1280, 194)
+position = Vector2(896, 194)
 
 [node name="torpedo" parent="." instance=ExtResource("14_mix15")]
 z_index = -1
@@ -826,6 +915,15 @@ script = ExtResource("19_28xmr")
 [node name="CollisionShape2D" parent="left_turret/Area2D" index="0"]
 position = Vector2(-57, 35)
 
+[node name="left_gun1" type="AudioStreamPlayer2D" parent="left_turret"]
+stream = ExtResource("19_lukkw")
+volume_db = -5.0
+
+[node name="left_gun2" type="AudioStreamPlayer2D" parent="left_turret"]
+stream = ExtResource("20_rq4o0")
+volume_db = -5.0
+max_distance = 1000.0
+
 [node name="right_turret" parent="." instance=ExtResource("18_r4lv7")]
 position = Vector2(1600, -128)
 script = ExtResource("20_mp2p5")
@@ -833,13 +931,23 @@ script = ExtResource("20_mp2p5")
 [node name="CollisionShape2D" parent="right_turret/Area2D" index="0"]
 position = Vector2(248, 88)
 
+[node name="right_gun1" type="AudioStreamPlayer2D" parent="right_turret"]
+stream = ExtResource("19_lukkw")
+volume_db = -5.0
+max_distance = 1000.0
+
+[node name="right_gun2" type="AudioStreamPlayer2D" parent="right_turret"]
+stream = ExtResource("20_rq4o0")
+volume_db = -5.0
+max_distance = 1000.0
+
 [node name="Player" parent="." instance=ExtResource("3_otlpw")]
-position = Vector2(736, 200)
+position = Vector2(736, 208)
 scale = Vector2(1.8, 1.8)
 speed = 250.0
 
 [node name="ecco the dolphin" type="Sprite2D" parent="."]
-position = Vector2(256, 758)
+position = Vector2(256, 784)
 scale = Vector2(2.17333, 0.16)
 texture = ExtResource("20_yqoap")
 centered = false
@@ -879,9 +987,9 @@ frame = 1
 
 [node name="white_panel" type="Panel" parent="reactor_lose"]
 modulate = Color(1, 1, 1, 0)
-offset_left = -120.0
+offset_left = -136.0
 offset_top = -536.0
-offset_right = 2440.0
+offset_right = 2424.0
 offset_bottom = 904.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_83dln")
 

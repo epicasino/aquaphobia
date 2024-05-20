@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://cf000sk5aqqc8"]
 
-[ext_resource type="Texture2D" uid="uid://dmaqm4vy34bla" path="res://Assets/Placeholder/Title_Text.png" id="1_h0vqr"]
 [ext_resource type="Script" path="res://Assets/Scripts/title_screen.gd" id="1_kkvyd"]
+[ext_resource type="Texture2D" uid="uid://gui2tubrmqff" path="res://Assets/Menus/new_aquaphobia_logo.png" id="2_k2w0q"]
 [ext_resource type="Theme" uid="uid://chs84xmngfdmm" path="res://Assets/Menus/title_screen.tres" id="3_w2rv4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e7usf"]
-size = Vector2(736, 194)
+size = Vector2(960, 194)
 
 [sub_resource type="Animation" id="Animation_j4e25"]
 length = 0.001
@@ -50,12 +50,12 @@ script = ExtResource("1_kkvyd")
 position = Vector2(0, -1)
 
 [node name="TitleText" type="Sprite2D" parent="moving_title_text"]
-position = Vector2(574.722, 256)
-scale = Vector2(0.601331, 0.599942)
-texture = ExtResource("1_h0vqr")
+position = Vector2(578, 158)
+scale = Vector2(1.80414, 1.79997)
+texture = ExtResource("2_k2w0q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="moving_title_text"]
-position = Vector2(592, 142)
+position = Vector2(576, 157)
 shape = SubResource("RectangleShape2D_e7usf")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

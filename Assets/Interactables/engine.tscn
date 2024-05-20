@@ -151,7 +151,6 @@ centered = false
 position = Vector2(64, 64)
 stream = ExtResource("3_jw38m")
 volume_db = -10.0
-autoplay = true
 max_distance = 250.0
 attenuation = 1.2
 panning_strength = 2.0
@@ -213,6 +212,10 @@ stream = ExtResource("12_4aknp")
 [node name="repair_timer" type="Timer" parent="."]
 wait_time = 4.0
 
+[node name="damage_timer" type="Timer" parent="."]
+wait_time = 2.0
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="timeout" from="repair_timer" to="." method="_on_repair_timer_timeout"]
+[connection signal="timeout" from="damage_timer" to="." method="_on_damage_timer_timeout"]

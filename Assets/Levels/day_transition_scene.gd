@@ -6,6 +6,7 @@ func _ready():
 	Global.game_day += 1
 	$day_label.text = 'Day ' + str(Global.game_day)
 	$AnimationPlayer.play("text-fade")
+	$day_transition.play()
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == 'text-fade':
