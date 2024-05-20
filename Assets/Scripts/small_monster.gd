@@ -37,8 +37,8 @@ func _on_crab_animations_animation_finished(anim_name):
 		onSub = true
 		Global.radarJammed = true
 		attack_behavior()
-	if anim_name == 'move-out-sub':
-		call_deferred("free")
+	#if anim_name == 'move-out-sub':
+		#call_deferred("free")
 
 func _on_attackingtimer_timeout():
 	if onSub && Global.radarJammed:
