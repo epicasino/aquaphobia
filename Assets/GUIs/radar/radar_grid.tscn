@@ -718,12 +718,15 @@ stream = ExtResource("14_jhom6")
 
 [node name="big_hit1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_5fwd8")
+volume_db = -15.0
 
 [node name="big_hit2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_nciyb")
+volume_db = -15.0
 
 [node name="big_hit3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_nvme7")
+volume_db = -15.0
 
 [node name="explosion_delay_timer" type="Timer" parent="."]
 wait_time = 5.0
