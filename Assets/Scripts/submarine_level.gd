@@ -1,5 +1,10 @@
 extends Node2D
 
+# PROGRAMMER NOTES
+# res://Sound/SoundEffects/Dolphin/Tf2_coconut.png
+# I have no ducking idea who put this here, but when I deleted it the game wouldn’t start.
+# Words cannot describe my ducking confusion.
+
 var smallDeadEnemyIndex = 0
 var smallEnemiesInKillzone = []
 
