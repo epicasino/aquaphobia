@@ -1,11 +1,13 @@
-[gd_scene load_steps=84 format=3 uid="uid://b21g746ev7f8v"]
+[gd_scene load_steps=86 format=3 uid="uid://b21g746ev7f8v"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/radar_grid.gd" id="1_7egi5"]
 [ext_resource type="PackedScene" uid="uid://duosb5d7ultp5" path="res://Assets/GUIs/radar/large_monster_radar.tscn" id="2_b5bhl"]
 [ext_resource type="PackedScene" uid="uid://cleqcfouqc6gl" path="res://Assets/GUIs/radar/medium_monster_radar.tscn" id="2_jdmjo"]
 [ext_resource type="PackedScene" uid="uid://6vybww4f30oi" path="res://Assets/GUIs/radar/small_monster_radar.tscn" id="3_c3cou"]
 [ext_resource type="Texture2D" uid="uid://c0ltkv3jmab1i" path="res://Assets/GUIs/radar/sprites/Radar_grid.png" id="4_6lygs"]
+[ext_resource type="Script" path="res://Assets/Scripts/spawn_timer.gd" id="5_c653p"]
 [ext_resource type="Texture2D" uid="uid://blnoouxcqfy8d" path="res://Assets/GUIs/radar/sprites/ping.png" id="5_xq68q"]
+[ext_resource type="Script" path="res://Assets/Scripts/lg_monster_timer.gd" id="6_kt5jf"]
 [ext_resource type="Texture2D" uid="uid://retm7jvagi68" path="res://Assets/GUIs/radar/sprites/Radar_target-Sheet.png" id="7_o7n6u"]
 [ext_resource type="Texture2D" uid="uid://o6akegqn58xv" path="res://Assets/GUIs/radar/sprites/radar_button-Sheet.png" id="7_vajog"]
 [ext_resource type="Texture2D" uid="uid://qpjpiceylkco" path="res://Assets/GUIs/radar/sprites/radar_sticky_note.png" id="7_yhwpj"]
@@ -640,6 +642,7 @@ render_target_update_mode = 4
 
 [node name="spawn_timer" type="Timer" parent="SubViewport"]
 wait_time = 13.5
+script = ExtResource("5_c653p")
 
 [node name="ping" type="Timer" parent="SubViewport"]
 wait_time = 5.0
@@ -651,7 +654,8 @@ wait_time = 5.0
 wait_time = 7.5
 
 [node name="lg_monster_timer" type="Timer" parent="SubViewport"]
-wait_time = 5.0
+wait_time = 240.0
+script = ExtResource("6_kt5jf")
 
 [node name="lg_monster_move_timer" type="Timer" parent="SubViewport"]
 wait_time = 10.0

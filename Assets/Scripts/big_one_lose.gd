@@ -22,6 +22,7 @@ func _on_start_again_pressed():
 	Global.first_playthrough = false
 	Global.game_start = true
 	Global.pingEnabled = false
+	Global.gunLockedIn = false
 	Global.torpedoCoordinates = Vector2(256, 448)
 	Global.torpedoLockedIn = false
 	Global.radarJammed = false

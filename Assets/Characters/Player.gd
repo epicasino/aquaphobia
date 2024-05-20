@@ -59,7 +59,7 @@ func drop():
 func check_frozen():
 	if (get_parent().get_node('radar').get_node('radar-grid').visible || 
 	get_parent().get_node('weapons_system').usingTerminal || 
-	!Global.game_start):
+	!Global.game_start || get_parent().get_node('engine').engineRepair):
 		frozen = true
 	else: frozen = false
 

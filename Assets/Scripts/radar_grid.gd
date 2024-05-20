@@ -30,10 +30,6 @@ func _ready():
 	visible = false
 	$SubViewport/radar_ping/Ping.visible = false
 	$SubViewport/radar_button.play("off")
-	$SubViewport/spawn_timer.set_wait_time(Global.enemySpawnRate)
-	if Global.game_day > 2:
-		$SubViewport/lg_monster_timer.set_wait_time(Global.largeEnemySpawnRate)
-		$SubViewport/lg_monster_timer.start()
 	
 	# sub position
 	#sub.position.x = 256
@@ -46,7 +42,6 @@ func _process(delta):
 	else:
 		startUpPing()
 		pingStarted = true
-	
 	deleteEnemies()
 	
 	if !Global.day_1_grace_period || Global.game_day != 1:
@@ -59,7 +54,8 @@ func _process(delta):
 func after_day_1_grace_period():
 	if !startEnemySpawn:
 		$SubViewport/spawn_timer.start()
-		#$SubViewport/lg_monster_timer.start()
+		if Global.game_day > 2:
+			$SubViewport/lg_monster_timer.start()
 		$SubViewport/medium_monster_timer.start()
 		$SubViewport/small_monster_timer.start()
 	startEnemySpawn = true

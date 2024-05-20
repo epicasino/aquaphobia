@@ -1,8 +1,8 @@
 extends Node
 
-var game_start : bool = false
-var game_day : int = 1
-var pingEnabled : bool = false
+var game_start: bool = false
+var game_day: int = 1
+var pingEnabled: bool = false
 
 var first_playthrough = true
 
@@ -29,31 +29,6 @@ var youLose
 # modifies spawn timer
 var enemySpawnRate: float
 var largeEnemySpawnRate: float
-# out of 10, remaining numbers out of 10 would be spawn rate of small_enemies
-var medEnemySpawnChance: int
+var medEnemySpawnChance = 4
 
 var reactorHealth = 0
-
-func _ready():
-	day_spawn_rates()
-
-func day_spawn_rates():
-	match game_day:
-		1:
-			enemySpawnRate = 10.5
-			medEnemySpawnChance = 4
-		2:
-			enemySpawnRate = 9.5
-			medEnemySpawnChance = 5
-		3:
-			largeEnemySpawnRate = 240
-			enemySpawnRate = 8.5
-			medEnemySpawnChance = 5
-		4:
-			largeEnemySpawnRate = 120
-			enemySpawnRate = 8
-			medEnemySpawnChance = 5
-		5:
-			largeEnemySpawnRate = 60
-			enemySpawnRate = 8
-			medEnemySpawnChance = 5

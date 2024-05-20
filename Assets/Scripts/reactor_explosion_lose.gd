@@ -17,6 +17,7 @@ func _on_quit_pressed():
 func _on_start_again_pressed():
 	Global.youLose = null
 	Global.first_playthrough = false
+	Global.gunLockedIn = false
 	Global.game_start = true
 	Global.pingEnabled = false
 	Global.torpedoCoordinates = Vector2(256, 448)

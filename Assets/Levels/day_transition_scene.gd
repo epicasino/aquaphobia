@@ -12,6 +12,7 @@ func _on_animation_player_animation_finished(anim_name):
 	if anim_name == 'text-fade':
 		Global.first_playthrough = false
 		#Global.game_day += 1
+		Global.gunLockedIn = false
 		Global.game_start = true
 		Global.pingEnabled = false
 		Global.torpedoCoordinates = Vector2(256, 448)
