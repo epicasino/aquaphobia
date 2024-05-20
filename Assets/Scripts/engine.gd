@@ -28,6 +28,8 @@ func _process(delta):
 		$interact_label.visible = true
 	else:
 		$interact_label.visible = false
+		engineRepair = false
+		$repair_timer.stop()
 	if engineRepair:
 		$fixing_status.visible = true
 	else:
@@ -38,11 +40,11 @@ func _process(delta):
 	if inEngine && Input.is_action_just_released("interact"):
 		btnHeldDown = false
 		
-	if !engineRepair && btnHeldDown:
+	if !engineRepair && btnHeldDown && inEngine:
 		engineRepair = true
 		$repair_timer.start()
 		$damage_timer.stop()
-	if engineRepair && !btnHeldDown:
+	if engineRepair && !btnHeldDown && inEngine:
 		engineRepair = false
 		$repair_timer.stop()
 		$damage_timer.start()

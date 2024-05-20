@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://b21g746ev7f8v"]
+[gd_scene load_steps=87 format=3 uid="uid://b21g746ev7f8v"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/radar_grid.gd" id="1_7egi5"]
 [ext_resource type="PackedScene" uid="uid://duosb5d7ultp5" path="res://Assets/GUIs/radar/large_monster_radar.tscn" id="2_b5bhl"]
@@ -19,6 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://bv0wh478pf4mh" path="res://Sound/SoundEffects/Sound/SoundEffects/Creature_SFX/The Big One/Big_one_hit_1.wav" id="15_5fwd8"]
 [ext_resource type="AudioStream" uid="uid://b3bdq2w13mnbs" path="res://Sound/SoundEffects/Sound/SoundEffects/Creature_SFX/The Big One/Big_one_hit_2.wav" id="16_nciyb"]
 [ext_resource type="AudioStream" uid="uid://d33vnwk71pawg" path="res://Sound/SoundEffects/Sound/SoundEffects/Creature_SFX/The Big One/Big_one_hit_3.wav" id="17_nvme7"]
+[ext_resource type="Texture2D" uid="uid://dfpw6hhnqfwvw" path="res://Assets/Interactables/Sprites/radar_rest_sticky_note.png" id="20_l6kte"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3a70g"]
 radius = 256.32
@@ -735,6 +736,10 @@ one_shot = true
 [node name="big_explosion_delay_timer" type="Timer" parent="."]
 wait_time = 7.0
 one_shot = true
+
+[node name="RadarRestStickyNote" type="Sprite2D" parent="."]
+position = Vector2(528, 568)
+texture = ExtResource("20_l6kte")
 
 [connection signal="timeout" from="SubViewport/spawn_timer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="SubViewport/ping" to="." method="_on_ping_timeout"]
