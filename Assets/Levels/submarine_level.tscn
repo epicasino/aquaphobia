@@ -1,10 +1,13 @@
-[gd_scene load_steps=55 format=3 uid="uid://bssihkya8horf"]
+[gd_scene load_steps=58 format=3 uid="uid://bssihkya8horf"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/submarine_level.gd" id="1_6yemq"]
 [ext_resource type="PackedScene" uid="uid://cf000sk5aqqc8" path="res://Assets/Menus/title_screen.tscn" id="1_osq1f"]
+[ext_resource type="Texture2D" uid="uid://b0tm747kciqu7" path="res://Assets/Tilesets/bg.png" id="2_v7enp"]
 [ext_resource type="Texture2D" uid="uid://mnfwhif3a730" path="res://Assets/Tilesets/ts_submarine.png" id="2_xwq63"]
+[ext_resource type="Texture2D" uid="uid://doohyjfmvn0kd" path="res://Assets/Tilesets/Bg_coral.png" id="3_m5kfi"]
 [ext_resource type="PackedScene" uid="uid://dyfayx4uj5114" path="res://Assets/Characters/Player.tscn" id="3_otlpw"]
 [ext_resource type="Script" path="res://Assets/Scripts/submarine_level_tileset.gd" id="4_nspun"]
+[ext_resource type="Texture2D" uid="uid://dofgqn7ujip5d" path="res://Assets/Tilesets/Bg_BG.png" id="4_okqne"]
 [ext_resource type="Texture2D" uid="uid://b58raxdlns34m" path="res://Assets/Tilesets/submarine_interior.png" id="4_t2nyv"]
 [ext_resource type="Script" path="res://Assets/Scripts/CustomCamera2D.gd" id="5_761ti"]
 [ext_resource type="AudioStream" uid="uid://cxv40b4djqllp" path="res://Sound/SoundEffects/Sound/OST/Trebor Orah - They Hunt.wav" id="7_acjor"]
@@ -22,7 +25,7 @@
 [ext_resource type="Script" path="res://Assets/Scripts/right_turret.gd" id="20_mp2p5"]
 [ext_resource type="Texture2D" uid="uid://dml3vhkgi5uxn" path="res://Assets/Placeholder/ecco-the-dolphin.png" id="20_yqoap"]
 [ext_resource type="Script" path="res://Assets/Scripts/reactor_lose.gd" id="22_8wwui"]
-[ext_resource type="AudioStream" uid="uid://cwt2nqx7kgxpx" path="res://Sound/SoundEffects/Submarine_SFX/Engine_System/reactor_meltdown.wav" id="22_qbskf"]
+[ext_resource type="AudioStream" uid="uid://cwt2nqx7kgxpx" path="res://Sound/SoundEffects/Submarine_SFX/reactor_meltdown.wav" id="22_qbskf"]
 [ext_resource type="Texture2D" uid="uid://bj53f1c1bcnh4" path="res://Assets/Levels/Lose/reactor_overload2-Sheet.png" id="23_moahp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hr0mv"]
@@ -552,6 +555,81 @@ animations = [{
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_83dln"]
 bg_color = Color(1, 1, 1, 1)
 
+[sub_resource type="Animation" id="Animation_yt1wp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("white_panel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("white_panel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("reactor_explosion:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"explosion"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("reactor_explosion:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("reactor_explosion:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("reactor_meltdown:volume_db")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_ep4u3"]
 resource_name = "explode"
 length = 9.5
@@ -628,81 +706,6 @@ tracks/5/keys = {
 "values": [0.0, -80.0]
 }
 
-[sub_resource type="Animation" id="Animation_yt1wp"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("white_panel:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("white_panel:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("reactor_explosion:animation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"explosion"]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("reactor_explosion:frame")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("reactor_explosion:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("reactor_meltdown:volume_db")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v2ydr"]
 _data = {
 "RESET": SubResource("Animation_yt1wp"),
@@ -711,6 +714,35 @@ _data = {
 
 [node name="submarine_level" type="Node2D"]
 script = ExtResource("1_6yemq")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.9, 0.9)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(1267, -78)
+scale = Vector2(1.74444, 1.74444)
+texture = ExtResource("2_v7enp")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground/ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxBackground/ParallaxLayer"]
+position = Vector2(1172, -140.5)
+scale = Vector2(1.5625, 1.74722)
+texture = ExtResource("4_okqne")
+
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground/ParallaxBackground2"]
+motion_scale = Vector2(1.1, 1.1)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxBackground2/ParallaxLayer"]
+position = Vector2(1172, -140.5)
+scale = Vector2(1.5625, 1.74722)
+texture = ExtResource("3_m5kfi")
 
 [node name="title_screen" parent="." instance=ExtResource("1_osq1f")]
 position = Vector2(444, -1028)
@@ -805,8 +837,6 @@ position = Vector2(248, 88)
 position = Vector2(736, 200)
 scale = Vector2(1.8, 1.8)
 speed = 250.0
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
 
 [node name="ecco the dolphin" type="Sprite2D" parent="."]
 position = Vector2(256, 758)
