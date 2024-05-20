@@ -9,6 +9,9 @@ var stop_jam = false
 signal spawn_small_enemy
 signal spawn_medium_enemy
 
+func _ready():
+	$radar_sprites.play("default")
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if inRadar:

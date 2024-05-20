@@ -89,4 +89,6 @@ func _on_garbage_timer_timeout():
 		medFleeEnemyIndex -= 1
 
 func _on_day_timer_timeout():
-	get_tree().change_scene_to_file('res://Assets/Levels/day_transition_scene.tscn')
+	if Global.game_day == 5:
+		pass
+	else: get_tree().change_scene_to_file('res://Assets/Levels/day_transition_scene.tscn')

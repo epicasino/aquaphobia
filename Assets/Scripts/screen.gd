@@ -134,7 +134,7 @@ var dialogue = [
 	"dialogue": [
 	  {
 		"line": "[center]Salutations, pilot.[/center]",
-		"emotion": "hello"
+		"emotion": "hello1"
 	  },
 	  {
 		"line": "[center]The expedited barge is stirring up the water and is causing [wave]increased activity.[/wave][/center]",

@@ -1,0 +1,218 @@
+[gd_scene load_steps=17 format=3 uid="uid://cwprb6x575cl3"]
+
+[ext_resource type="Script" path="res://Assets/Levels/Win/you_win.gd" id="1_cqqa0"]
+[ext_resource type="Texture2D" uid="uid://ceeg45bopry73" path="res://Assets/Levels/Win/you_escaped.png" id="1_nkx43"]
+[ext_resource type="FontFile" uid="uid://xr20vdyorlyn" path="res://Assets/Fonts/PixelFont.ttf" id="2_kkyte"]
+[ext_resource type="Texture2D" uid="uid://bjqn2nfqaq4il" path="res://Assets/Placeholder/dolphin-sprite-sheet.png" id="4_w1oue"]
+[ext_resource type="AudioStream" uid="uid://ct40nm6p7e54f" path="res://Sound/SoundEffects/Dolphin/Dolphin_Ping.wav" id="5_lomh7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ard4"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_j2l84"]
+resource_name = "fade"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("black_screen:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_lsgy1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("black_screen:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1304, 528)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("dolphin_ping:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_x34r0"]
+resource_name = "dolphin_moves"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1304, 528), Vector2(-500, 528)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("dolphin_ping:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xllws"]
+_data = {
+"RESET": SubResource("Animation_lsgy1"),
+"dolphin_moves": SubResource("Animation_x34r0"),
+"fade": SubResource("Animation_j2l84")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ntrtc"]
+atlas = ExtResource("4_w1oue")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ajoy"]
+atlas = ExtResource("4_w1oue")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgkko"]
+atlas = ExtResource("4_w1oue")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wo5y"]
+atlas = ExtResource("4_w1oue")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ru7k1"]
+atlas = ExtResource("4_w1oue")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vbbam"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ntrtc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ajoy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgkko")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7wo5y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ru7k1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="YouWin" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cqqa0")
+
+[node name="YouEscaped" type="Sprite2D" parent="."]
+position = Vector2(575.778, 326)
+scale = Vector2(0.600232, 0.60463)
+texture = ExtResource("1_nkx43")
+
+[node name="black_screen" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.012
+offset_bottom = 0.223938
+theme_override_styles/panel = SubResource("StyleBoxFlat_6ard4")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 705.0
+offset_top = 264.0
+offset_right = -183.0
+offset_bottom = -271.0
+theme_override_fonts/font = ExtResource("2_kkyte")
+theme_override_font_sizes/font_size = 32
+text = "Game by 
+Trebor Orah, 
+Pikroid, 
+& Epicasino"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xllws")
+}
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1304, 528)
+scale = Vector2(2.875, 2.875)
+sprite_frames = SubResource("SpriteFrames_vbbam")
+frame = 4
+frame_progress = 0.660018
+
+[node name="Label" type="Label" parent="AnimatedSprite2D"]
+anchors_preset = -1
+anchor_right = 1.717
+anchor_bottom = 0.891
+offset_left = 28.6956
+offset_top = -14.8261
+offset_right = -9.19236
+offset_bottom = -48.8501
+theme_override_fonts/font = ExtResource("2_kkyte")
+text = "I Love You :)"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="dolphin_timer" type="Timer" parent="."]
+wait_time = 25.0
+one_shot = true
+
+[node name="dolphin_ping" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_lomh7")
+volume_db = -15.0
+
+[connection signal="timeout" from="dolphin_timer" to="." method="_on_dolphin_timer_timeout"]

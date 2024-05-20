@@ -15,6 +15,8 @@ func _ready():
 	rng.randomize()
 	$AnimatedSprite2D.play("default")
 	$reactor_health.visible = false
+	$engine_hum.play()
+	$damage_timer.start()
 
 func get_random_int_between(min_val, max_val):
 	return rng.randi_range(min_val, max_val)
@@ -61,9 +63,11 @@ func _on_body_exited(body):
 
 func _on_repair_timer_timeout():
 	var randomInt = get_random_int_between(0,6)
-	# TODO: negative numbers in health
-	if Global.reactorHealth - 4 < 0:
+	if Global.reactorHealth - 5 < 0:
 		Global.reactorHealth = 0
 	else:
-		Global.reactorHealth -= 4
+		Global.reactorHealth -= 5
 	repair_sounds[randomInt].play()
+
+func _on_damage_timer_timeout():
+	Global.reactorHealth += 1

@@ -40,20 +40,20 @@ func _ready():
 func day_spawn_rates():
 	match game_day:
 		1:
-			enemySpawnRate = 13.5
+			enemySpawnRate = 10.5
 			medEnemySpawnChance = 4
 		2:
-			enemySpawnRate = 12.5
+			enemySpawnRate = 9.5
 			medEnemySpawnChance = 5
 		3:
 			largeEnemySpawnRate = 240
-			enemySpawnRate = 11.5
+			enemySpawnRate = 8.5
 			medEnemySpawnChance = 5
 		4:
 			largeEnemySpawnRate = 120
-			enemySpawnRate = 10.5
+			enemySpawnRate = 8
 			medEnemySpawnChance = 5
 		5:
 			largeEnemySpawnRate = 60
-			enemySpawnRate = 11.5
+			enemySpawnRate = 8
 			medEnemySpawnChance = 5

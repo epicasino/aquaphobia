@@ -21,6 +21,21 @@ func _process(delta):
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bevef"]
 size = Vector2(376, 221)
 
+[sub_resource type="Animation" id="Animation_2lxlr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TurretBarrel:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_osoq5"]
 resource_name = "gun-to-left"
 length = 0.5
@@ -53,8 +68,9 @@ tracks/0/keys = {
 "values": [0.0, 2.16421]
 }
 
-[sub_resource type="Animation" id="Animation_2lxlr"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_3fpou"]
+resource_name = "left-back-to-normal"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -62,10 +78,10 @@ tracks/0/path = NodePath("TurretBarrel:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0]
+"values": [-1.39626, 0.0]
 }
 
 [sub_resource type="Animation" id="Animation_a4e6j"]
@@ -82,22 +98,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [2.16421, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_3fpou"]
-resource_name = "left-back-to-normal"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TurretBarrel:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-1.39626, 0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_r63i2"]
