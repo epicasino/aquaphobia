@@ -95,5 +95,5 @@ func _on_garbage_timer_timeout():
 
 func _on_day_timer_timeout():
 	if Global.game_day == 5:
-		pass
+		get_tree().change_scene_to_file('res://Assets/Levels/Win/you_win.tscn')
 	else: get_tree().change_scene_to_file('res://Assets/Levels/day_transition_scene.tscn')

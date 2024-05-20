@@ -39,6 +39,10 @@ var dialogue = [
 		"emotion": "explain1"
 	  },
 	  {
+		"line": '[center]Make sure to keep your engine repaired to avoid going critical.[/center]',
+		"emotion": "explain4"
+	  },
+	  {
 		"line": "[center]Good luck.[/center]",
 		"emotion": "short1"
 	  }

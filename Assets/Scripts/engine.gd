@@ -41,9 +41,11 @@ func _process(delta):
 	if !engineRepair && btnHeldDown:
 		engineRepair = true
 		$repair_timer.start()
+		$damage_timer.stop()
 	if engineRepair && !btnHeldDown:
 		engineRepair = false
 		$repair_timer.stop()
+		$damage_timer.start()
 		
 	if !inEngine:
 		$reactor_health.visible = false
